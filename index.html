@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuale Completo Panasonic G9 — Cinema & IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0806;
+  --bg2:#120d09;
+  --panel:#1a130d;
+  --panel2:#221811;
+  --line:#352819;
+  --ink:#f6efe4;
+  --muted:#c4b39a;
+  --dim:#8a7558;
+  --amber:#ffb22e;
+  --gold:#ffd479;
+  --teal:#3fd6c4;
+  --crimson:#ff5747;
+  --rust:#e8763a;
+  --film:#f0e6d2;
+  --neo:#7fd17f;
+  --inter:#ffb22e;
+  --pro:#ff5747;
+  --g-amber:rgba(255,178,46,.35);
+  --g-teal:rgba(63,214,196,.32);
+  --g-crimson:rgba(255,87,71,.32);
+}
+/* ===== TEMI SFONDO ===== */
+body[data-theme="notte"]{ --bg:#070a14; --bg2:#0c1322; --panel:#111a2e; --panel2:#16203a; --line:#22304f; }
+body[data-theme="carbone"]{ --bg:#0d0d10; --bg2:#141418; --panel:#1b1b20; --panel2:#232329; --line:#34343d; }
+body[data-theme="foresta"]{ --bg:#08110c; --bg2:#0d1a12; --panel:#13241a; --panel2:#193021; --line:#274a34; }
+body[data-theme="prugna"]{ --bg:#120814; --bg2:#1c0f22; --panel:#261432; --panel2:#311a40; --line:#48285c; }
+body[data-theme="carta"]{ --bg:#f3ead8; --bg2:#ece0c8; --panel:#fbf6ea; --panel2:#f3ead8; --line:#dccaa8; --ink:#2a2018; --muted:#5c4e3a; --dim:#8a7858; }
+body[data-theme="giorno"]{ --bg:#eef1f5; --bg2:#e4e9f0; --panel:#f9fbfd; --panel2:#eef1f5; --line:#d0d7e1; --ink:#1a2230; --muted:#465062; --dim:#7a8499; }
+body{ transition:background-color .45s ease, color .35s ease; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow',sans-serif;
+  font-size: 1.25rem;
+  background:
+    radial-gradient(1100px 600px at 85% -8%, rgba(255,178,46,.12), transparent 58%),
+    radial-gradient(900px 600px at -10% 25%, rgba(63,214,196,.08), transparent 55%),
+    radial-gradient(900px 700px at 50% 130%, rgba(255,87,71,.07), transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  margin:0; padding:0; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px);
+}
+.wrap{position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:0 20px 120px}
+
+/* GLOBAL NAV */
+.global-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg2); border-bottom: 1px solid var(--line);
+  padding: 12px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;
+}
+.global-nav-inner {
+  max-width: 1060px; margin: 0 auto; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center;
+}
+.global-nav a {
+  color: var(--muted); text-decoration: none; padding: 8px 14px; border-radius: 6px;
+  border: 1px solid transparent; transition: 0.2s;
+}
+.global-nav a:hover, .global-nav a.active {
+  color: var(--amber); background: rgba(255,178,46,0.1); border-color: rgba(255,178,46,0.2);
+}
+
+/* TOP BAR (LOCAL NAV) */
+.topbar{position:sticky; top:0; z-index:50; backdrop-filter:blur(14px);
+  background:var(--bg2); border-bottom:1px solid var(--line)}
+.topbar-inner{max-width:1060px; margin:0 auto; padding:15px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.logo{font-family:'Bebas Neue'; letter-spacing:2px; font-size:1.6rem; display:flex; align-items:center; gap:10px; color:var(--gold)}
+.logo .rec{width:12px; height:12px; border-radius:50%; background:var(--crimson); box-shadow:0 0 14px var(--g-crimson); animation:blink 1.6s infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.25}}
+.local-nav{display:flex; gap:6px; flex-wrap:wrap; margin-left:auto}
+.local-nav a{font-family:'IBM Plex Mono'; font-size:0.9rem; text-decoration:none; color:var(--muted);
+  padding:8px 12px; border-radius:6px; border:1px solid transparent; transition:.25s}
+.local-nav a:hover{color:var(--ink); border-color:var(--line); background:var(--panel)}
+
+/* HERO */
+.hero{position:relative; margin:40px 0 26px; padding:0; border-radius:20px; overflow:hidden;
+  border:1px solid var(--line); background:linear-gradient(135deg, rgba(255,178,46,.16), rgba(232,118,58,.12) 50%, rgba(63,214,196,.10))}
+.hero-bars{position:absolute; inset:0; background:
+  linear-gradient(180deg, rgba(0,0,0,.55), transparent 18%, transparent 82%, rgba(0,0,0,.55))}
+.hero-in{position:relative; padding:56px 42px 50px}
+.clap{font-family:'IBM Plex Mono'; font-size:0.9rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:16px}
+.hero h1{font-family:'Bebas Neue'; font-weight:400; font-size:clamp(3.2rem,9vw,6rem); line-height:.92; margin:0 0 16px; letter-spacing:1px}
+.hero h1 span{display:block; background:linear-gradient(90deg,var(--amber),var(--rust),var(--crimson)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.hero p{max-width:760px; color:var(--muted); font-size:1.3rem; margin:0}
+.hero .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:28px}
+.chip{font-family:'IBM Plex Mono'; font-size:0.9rem; padding:8px 14px; border-radius:6px; border:1px solid var(--line); background:var(--panel2); color:var(--ink)}
+
+/* DASHBOARD */
+.dash{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin:28px 0 10px}
+.tile{display:block; text-decoration:none; color:inherit; position:relative; overflow:hidden;
+  background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--line); border-radius:14px; padding:24px; transition:.3s}
+.tile::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--amber)}
+.tile:hover{transform:translateY(-5px); border-color:var(--amber); box-shadow:0 16px 36px -20px var(--g-amber)}
+.tile.teal::before{background:var(--teal)} .tile.teal:hover{border-color:var(--teal); box-shadow:0 16px 36px -20px var(--g-teal)}
+.tile.crimson::before{background:var(--crimson)} .tile.crimson:hover{border-color:var(--crimson); box-shadow:0 16px 36px -20px var(--g-crimson)}
+.tile.gold::before{background:var(--gold)} .tile.gold:hover{border-color:var(--gold)}
+.tile .ch{font-family:'IBM Plex Mono'; font-size:0.85rem; color:var(--dim); letter-spacing:2px}
+.tile h4{font-family:'Bebas Neue'; letter-spacing:.5px; margin:10px 0 6px; font-size:1.8rem}
+.tile p{margin:0; font-size:1.15rem; color:var(--muted)}
+
+/* SECTIONS */
+ui-theme{display:none}
+section{margin:62px 0 0; scroll-margin-top:90px}
+.sec-head{display:flex; align-items:flex-end; gap:18px; margin-bottom:28px; border-bottom:1px solid var(--line); padding-bottom:15px}
+.sec-num{font-family:'Bebas Neue'; font-size:4rem; line-height:.8; background:linear-gradient(180deg,var(--amber),var(--rust)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.sec-head h2{font-family:'Bebas Neue'; font-weight:400; letter-spacing:1px; font-size:2.4rem; margin:0}
+.sec-head .sub{font-family:'IBM Plex Mono'; font-size:0.9rem; color:var(--dim); display:block; margin-top:5px; letter-spacing:1px}
+.lead{font-size:1.3rem; color:var(--muted); margin:0 0 28px; max-width:860px}
+
+/* CARDS */
+.card{background:linear-gradient(180deg,var(--panel),rgba(34,24,17,.6)); border:1px solid var(--line); border-left:5px solid var(--amber);
+  border-radius:14px; padding:28px 30px; margin:0 0 22px; transition:.3s}
+.card:hover{transform:translateY(-3px); box-shadow:0 14px 32px -22px var(--g-amber)}
+.card.teal{border-left-color:var(--teal)} .card.teal:hover{box-shadow:0 14px 32px -22px var(--g-teal)}
+.card.crimson{border-left-color:var(--crimson)} .card.crimson:hover{box-shadow:0 14px 32px -22px var(--g-crimson)}
+.card.gold{border-left-color:var(--gold)}
+.card h3{font-family:'Bebas Neue'; letter-spacing:.5px; margin:0 0 8px; font-size:1.9rem}
+.card.amber h3{color:var(--amber)} .card.teal h3{color:var(--teal)} .card.crimson h3{color:var(--crimson)} .card.gold h3{color:var(--gold)}
+.card .desc{color:var(--muted); margin:0 0 10px; font-size:1.25rem}
+
+/* BADGES */
+.badge{display:inline-block; padding:6px 15px; border-radius:6px; font-family:'IBM Plex Mono'; font-size:0.85rem; font-weight:600; margin-bottom:16px; text-transform:uppercase; letter-spacing:1.4px}
+.badge.neo{background:rgba(127,209,127,.15); color:var(--neo); border:1px solid rgba(127,209,127,.4)}
+.badge.inter{background:rgba(255,178,46,.15); color:var(--inter); border:1px solid rgba(255,178,46,.4)}
+.badge.pro{background:rgba(255,87,71,.15); color:var(--pro); border:1px solid rgba(255,87,71,.4)}
+.badge.all{background:rgba(63,214,196,.15); color:var(--teal); border:1px solid rgba(63,214,196,.4)}
+
+/* STEPS */
+ol.steps{counter-reset:c; list-style:none; padding:0; margin:18px 0 0}
+ol.steps li{position:relative; padding-left:52px; margin-bottom:16px; font-size:1.25rem}
+ol.steps li::before{counter-increment:c; content:counter(c); position:absolute; left:0; top:0; width:34px; height:34px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono'; font-weight:600; font-size:0.95rem; color:#1a130d;
+  background:var(--amber); box-shadow:0 0 12px var(--g-amber)}
+.card.teal ol.steps li::before{background:var(--teal); box-shadow:0 0 12px var(--g-teal)}
+.card.crimson ol.steps li::before{background:var(--crimson); box-shadow:0 0 12px var(--g-crimson)}
+.card.gold ol.steps li::before{background:var(--gold)}
+
+ul.dots{padding-left:2px; list-style:none; margin:14px 0}
+ul.dots li{position:relative; padding-left:26px; margin-bottom:12px; color:var(--muted); font-size:1.25rem}
+ul.dots li::before{content:"▸"; position:absolute; left:0; color:var(--amber); font-size:1.2rem}
+
+/* KEYS */
+.k{font-family:'IBM Plex Mono'; font-size:0.95rem; padding:3px 10px; border-radius:5px; background:rgba(255,178,46,.13); border:1px solid rgba(255,178,46,.3); color:var(--gold); white-space:nowrap}
+.km{font-family:'IBM Plex Mono'; font-size:0.95rem; padding:3px 10px; border-radius:5px; background:rgba(255,255,255,.05); border:1px solid var(--line); color:var(--ink)}
+strong{color:var(--ink); font-weight:600}
+em.tip{font-style:normal; color:var(--gold)}
+
+/* DO/DONT */
+.dd{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:22px 0}
+.dd .col{border-radius:14px; padding:22px; border:1px solid var(--line)}
+.dd .do{background:linear-gradient(180deg,rgba(127,209,127,.09),transparent); border-color:rgba(127,209,127,.32)}
+.dd .dont{background:linear-gradient(180deg,rgba(255,87,71,.09),transparent); border-color:rgba(255,87,71,.32)}
+.dd h5{font-family:'Bebas Neue'; letter-spacing:.5px; margin:0 0 14px; font-size:1.6rem; display:flex; align-items:center; gap:10px}
+.dd .do h5{color:var(--neo)} .dd .dont h5{color:var(--pro)}
+.dd ul{margin:0; padding-left:22px} .dd li{margin-bottom:10px; color:var(--muted); font-size:1.2rem}
+
+/* TABLE */
+.tbl{width:100%; border-collapse:collapse; margin:20px 0; font-size:1.2rem; overflow:hidden; border-radius:10px}
+.tbl th,.tbl td{padding:14px 18px; text-align:left; border-bottom:1px solid var(--line)}
+.tbl th{font-family:'IBM Plex Mono'; font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; color:var(--gold); background:rgba(255,178,46,.06)}
+.tbl tr:hover td{background:rgba(255,255,255,.02)}
+.tbl td:first-child{color:var(--ink); font-weight:500}
+
+/* CALLOUT */
+.callout{display:flex; gap:16px; padding:20px 22px; border-radius:12px; margin:20px 0; align-items:flex-start; font-size:1.25rem}
+.callout.warn{background:rgba(255,178,46,.08); border:1px solid rgba(255,178,46,.32)}
+.callout.danger{background:rgba(255,87,71,.08); border:1px solid rgba(255,87,71,.32)}
+.callout.info{background:rgba(63,214,196,.07); border:1px solid rgba(63,214,196,.3)}
+.callout .ic{font-size:1.5rem; line-height:1}
+.callout b{color:var(--ink)}
+
+/* DIAGRAM */
+.diagram{background:var(--panel2); border:1px solid var(--line); border-radius:14px; padding:26px; margin:24px 0; text-align:center}
+.diagram .cap{font-family:'IBM Plex Mono'; font-size:0.85rem; color:var(--dim); margin-top:16px; letter-spacing:1px}
+.diagram svg{max-width:100%; height:auto}
+
+/* SETTINGS STRIP */
+.strip{display:flex; flex-wrap:wrap; gap:14px; margin:18px 0}
+.set{flex:1; min-width:140px; background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+.set .lbl{font-family:'IBM Plex Mono'; font-size:0.8rem; color:var(--dim); text-transform:uppercase; letter-spacing:1px}
+.set .val{font-family:'Bebas Neue'; font-size:1.7rem; letter-spacing:.5px; color:var(--gold); margin-top:4px}
+
+hr.div{border:none; height:1px; background:var(--line); margin:44px 0}
+.subhead{font-family:'Bebas Neue'; letter-spacing:.5px; font-size:1.7rem; color:var(--ink); margin:36px 0 14px; display:flex; align-items:center; gap:12px}
+.subhead::before{content:""; width:10px; height:10px; border-radius:2px; background:var(--rust); box-shadow:0 0 10px rgba(232,118,58,.5)}
+footer{margin-top:84px; padding:36px 0; border-top:1px solid var(--line); text-align:center; color:var(--dim); font-family:'IBM Plex Mono'; font-size:0.9rem}
+a.toplink{color:var(--gold); text-decoration:none}
+
+@media(max-width:680px){
+  .dd{grid-template-columns:1fr}
+  .hero-in{padding:44px 28px}
+  .sec-num{font-size:3rem}
+  .card{padding:24px 22px}
+  .lead{font-size:1.15rem}
+}
+
+/* ===== TASTO CAMBIA SFONDO ===== */
+#themeBtn{
+  position:fixed; right:24px; bottom:24px; z-index:80;
+  display:flex; align-items:center; gap:10px;
+  font-family:'IBM Plex Mono', monospace; font-size:0.95rem; font-weight:600;
+  color:#1a130d; cursor:pointer; user-select:none;
+  padding:14px 20px; border-radius:999px; border:none;
+  background:linear-gradient(135deg, var(--amber), var(--rust));
+  box-shadow:0 10px 28px -8px var(--g-amber), 0 0 0 1px rgba(0,0,0,.15) inset;
+  transition:transform .2s ease, box-shadow .25s ease;
+}
+#themeBtn:hover{ transform:translateY(-3px) scale(1.03); box-shadow:0 16px 34px -8px var(--g-amber); }
+#themeBtn:active{ transform:translateY(0) scale(.97); }
+#themeBtn .swatch{
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid rgba(0,0,0,.35);
+  background:var(--bg);
+  box-shadow:0 0 0 2px rgba(255,255,255,.4);
+}
+#themeBtn .lbl-name{ font-weight:700; letter-spacing:.5px; }
+@media(max-width:680px){
+  #themeBtn{ right:16px; bottom:16px; padding:12px 16px; font-size:0.85rem; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.page-section {
+  padding-top: 80px;
+  margin-top: -40px;
+}
+</style>
+<script>
+  (function() {
+    const themes = [
+      {id: null,        name: 'Cinema'},
+      {id: 'notte',     name: 'Notte'},
+      {id: 'carbone',   name: 'Carbone'},
+      {id: 'foresta',   name: 'Foresta'},
+      {id: 'prugna',    name: 'Prugna'},
+      {id: 'carta',     name: 'Carta'},
+      {id: 'giorno',    name: 'Giorno'}
+    ];
+    let currentThemeId = null;
+    try {
+      currentThemeId = localStorage.getItem('g9-theme');
+    } catch(e) {
+      console.warn("Storage access denied (likely file:// protocol in Safari). Defaulting to standard theme.");
+    }
+    let ti = themes.findIndex(t => t.id === currentThemeId);
+    if (ti === -1) ti = 0;
+    const theme = themes[ti];
+    if (theme.id) document.documentElement.setAttribute('data-theme', theme.id);
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      if (theme.id) document.body.setAttribute('data-theme', theme.id);
+      const nameEl = document.querySelector('#themeBtn .lbl-name');
+      if (nameEl) nameEl.textContent = theme.name;
+      const btn = document.getElementById('themeBtn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          ti = (ti + 1) % themes.length;
+          const t = themes[ti];
+          if (t.id) {
+            document.body.setAttribute('data-theme', t.id);
+            document.documentElement.setAttribute('data-theme', t.id);
+          } else {
+            document.body.removeAttribute('data-theme');
+            document.documentElement.removeAttribute('data-theme');
+          }
+          try {
+            localStorage.setItem('g9-theme', t.id);
+          } catch(e) {}
+          if (nameEl) nameEl.textContent = t.name;
+        });
+      }
+
+      // ScrollSpy implementation
+      const navLinks = document.querySelectorAll('.global-nav a');
+      const sections = document.querySelectorAll('.page-section');
+      
+      window.addEventListener('scroll', () => {
+        let current = "";
+        const scrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (scrollY >= sectionTop - 150) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === `#${current}`) {
+            a.classList.add('active');
+          }
+        });
+      });
+    });
+  })();
+</script>
+</head>
+<body>
+
+<div class="global-nav">
+  <div class="global-nav-inner">
+    <a href="#dashboard" class="active">🏠 Dashboard</a>
+    <a href="#setup-attrezzatura">🎥 Setup & Attrezzatura</a>
+    <a href="#intelligenza-artificiale">🧠 Intelligenza Artificiale</a>
+    <a href="#look-post">🎬 Look Cinema & Post</a>
+    <a href="#manuale-operativo-sezione">⚙️ Manuale Operativo</a>
+  </div>
+</div>
+
+<!-- ===================== PAGE SECTION: DASHBOARD ===================== -->
+<div id="dashboard" class="page-section">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-bars"></div>
+      <div class="hero-in">
+        <div class="clap">🎬 Guida visuale · cruscotto · tutorial · schemi</div>
+        <h1>Gira come al<span>cinema con la G9</span></h1>
+        <p>Dalla prima clip in automatico fino a V-Log L 10-bit e color grading: tutto ciò che serve per trasformare la Panasonic Lumix G9 in una vera macchina da cinema. Una guida unica per principianti, appassionati e professionisti.</p>
+        <div class="meta">
+          <span class="chip">4K 60p</span>
+          <span class="chip">10-bit 4:2:2 interno</span>
+          <span class="chip">V-Log L · 12 stop</span>
+          <span class="chip">VFR 2–180 fps</span>
+          <span class="chip">Dual I.S. 2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top: 40px; margin-bottom: 20px;"><span class="sec-num">🌟</span>
+      <div><h2>Esplora le Sezioni Speciali</h2><span class="sub">guide dettagliate per il tuo setup</span></div>
+    </div>
+    
+    <div class="dash" style="margin-bottom: 40px;">
+      <a class="tile teal" href="#setup-attrezzatura"><div class="ch">EXTRA</div><h4>Cinema Kit Completo</h4><p>Sigma 16mm & 30mm, DJI Mic Mini, Mac M4.</p></a>
+      <a class="tile crimson" href="#intelligenza-artificiale"><div class="ch">EXTRA</div><h4>Intelligenza Artificiale</h4><p>Guida completa al Venus Engine e funzioni AI.</p></a>
+      <a class="tile gold" href="#look-post"><div class="ch">EXTRA</div><h4>Look Cinematografico</h4><p>Profili, Curve Gamma e 80 Megapixel.</p></a>
+      <a class="tile amber" href="#manuale-operativo-sezione"><div class="ch">EXTRA</div><h4>Manuale Operativo</h4><p>Algoritmi e gestione delle eccezioni sul set.</p></a>
+    </div>
+
+    <p class="lead">Questo cruscotto è diviso in <strong>moduli</strong>: tocca una tessera per saltare direttamente alla sezione o scorri per il percorso completo. Ogni argomento ha badge di livello — <span class="badge neo" style="margin:0">Principiante</span> <span class="badge inter" style="margin:0">Intermedio</span> <span class="badge pro" style="margin:0">Pro</span> — così sai subito cosa fa per te.</p>
+
+    <div class="sec-head" style="margin-bottom: 20px;"><span class="sec-num">📚</span>
+      <div><h2>Cruscotto Moduli</h2><span class="sub">scorri o tocca per imparare</span></div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dash" id="start">
+      <a class="tile amber" href="#mindset"><div class="ch">01</div><h4>Mindset Cinema</h4><p>Cosa rende "cinematografica" un'immagine: i 5 pilastri.</p></a>
+      <a class="tile teal" href="#formati"><div class="ch">02</div><h4>Formati & Setup</h4><p>4K/FHD, 10-bit 4:2:2, bitrate, schede e limiti di registrazione.</p></a>
+      <a class="tile crimson" href="#framerate"><div class="ch">03</div><h4>Frame Rate</h4><p>24/25/30/60p, slow-motion VFR fino a 180fps, quando usarli.</p></a>
+      <a class="tile gold" href="#shutter"><div class="ch">04</div><h4>Regola dei 180°</h4><p>Shutter, motion blur naturale e i filtri ND.</p></a>
+      <a class="tile amber" href="#colore"><div class="ch">05</div><h4>Profili Colore</h4><p>Standard, Cinelike D/V, Like709: quale scegliere e perché.</p></a>
+      <a class="tile teal" href="#vlog"><div class="ch">06</div><h4>V-Log L</h4><p>12 stop di gamma, esposizione corretta e LUT verso Rec.709.</p></a>
+      <a class="tile crimson" href="#esposizione"><div class="ch">07</div><h4>Esposizione Video</h4><p>ISO, WB Kelvin, zebra, waveform e ISO dual native.</p></a>
+      <a class="tile gold" href="#focus"><div class="ch">08</div><h4>Fuoco in Video</h4><p>MF + peaking, pull focus, AF-C e i limiti del DFD in video.</p></a>
+      <a class="tile amber" href="#movimento"><div class="ch">09</div><h4>Movimento</h4><p>Dual I.S., gimbal, slider, panoramiche e camminata.</p></a>
+      <a class="tile teal" href="#audio"><div class="ch">10</div><h4>Audio Cinema</h4><p>Microfoni, livelli, sync e perché l'audio è metà del film.</p></a>
+      <a class="tile crimson" href="#post"><div class="ch">11</div><h4>Post & Grading</h4><p>Workflow LUT, normalizzazione log, look e LUT creativi.</p></a>
+      <a class="tile gold" href="#ricette"><div class="ch">12</div><h4>Ricette Pronte</h4><p>Setup completi copia-incolla per ogni situazione di ripresa.</p></a>
+    </div>
+
+    <!-- ===================== 01 MINDSET ===================== -->
+    <section id="mindset" class="page-section">
+      <div class="sec-head"><span class="sec-num">01</span>
+        <div><h2>Il Mindset Cinematografico</h2><span class="sub">cosa distingue un video da "un film"</span></div></div>
+
+      <p class="lead">Prima dei menu, conta la testa. Un'immagine "cinematografica" non nasce da un singolo settaggio ma dall'incastro di cinque elementi. La G9 ha tutto per ottenerli: il tuo compito è governarli con intenzione.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+          <g text-anchor="middle">
+            <circle cx="100" cy="80" r="50" fill="rgba(255,178,46,.1)" stroke="#ffb22e"/>
+            <text x="100" y="76" fill="#ffb22e" font-size="11">MOVIMENTO</text>
+            <text x="100" y="92" fill="var(--muted)" font-size="9">lento, motivato</text>
+            <circle cx="260" cy="80" r="50" fill="rgba(63,214,196,.1)" stroke="#3fd6c4"/>
+            <text x="260" y="76" fill="#3fd6c4" font-size="11">SHUTTER</text>
+            <text x="260" y="92" fill="var(--muted)" font-size="9">regola 180°</text>
+            <circle cx="420" cy="80" r="50" fill="rgba(255,87,71,.1)" stroke="#ff5747"/>
+            <text x="420" y="76" fill="#ff5747" font-size="11">COLORE</text>
+            <text x="420" y="92" fill="var(--muted)" font-size="9">coerente</text>
+            <circle cx="580" cy="80" r="50" fill="rgba(255,212,121,.1)" stroke="#ffd479"/>
+            <text x="580" y="76" fill="#ffd479" font-size="11">PROFONDITÀ</text>
+            <text x="580" y="92" fill="var(--muted)" font-size="9">soggetto staccato</text>
+            <circle cx="340" cy="175" r="50" fill="rgba(232,118,58,.12)" stroke="#e8763a"/>
+            <text x="340" y="171" fill="#e8763a" font-size="11">LUCE</text>
+            <text x="340" y="187" fill="var(--muted)" font-size="9">direzione + contrasto</text>
+          </g>
+        </svg>
+        <div class="cap">I 5 pilastri dell'immagine cinematografica · valgono per qualsiasi camera</div>
+      </div>
+
+      <div class="card amber">
+        <span class="badge all">Da interiorizzare</span>
+        <h3>I 5 pilastri, spiegati</h3>
+        <ul class="dots">
+          <li><strong>Movimento lento e motivato:</strong> la camera si muove per una ragione (seguire, rivelare), mai a caso. Meglio un'inquadratura ferma e composta che uno zoom nervoso.</li>
+          <li><strong>Shutter "regola dei 180°":</strong> il mosso naturale del cinema nasce da un tempo di otturazione doppio del frame rate. È la firma del look filmico.</li>
+          <li><strong>Colore coerente:</strong> stesso bilanciamento del bianco e stessa palette tra le clip. Il "salto" di colore tradisce subito l'amatore.</li>
+          <li><strong>Profondità:</strong> separare il soggetto dallo sfondo con diaframmi aperti e/o distanza dà tridimensionalità.</li>
+          <li><strong>Luce con direzione:</strong> non luce piatta frontale, ma luce laterale che scolpisce, con un rapporto tra zone chiare e scure.</li>
+        </ul>
+      </div>
+
+      <div class="callout info"><span class="ic">🎯</span><div><b>La regola d'oro.</b> Il "look cinema" è il 70% composizione + luce + movimento, e solo il 30% impostazioni di camera. La G9 non ti rende regista: ti dà gli strumenti. Studia inquadrature dei film che ami e provale.</div></div>
+    </section>
+
+    <!-- ===================== 02 FORMATI ===================== -->
+    <section id="formati" class="page-section">
+      <div class="sec-head"><span class="sec-num">02</span>
+        <div><h2>Formati, Codec & Setup</h2><span class="sub">il fondamento tecnico delle tue clip</span></div></div>
+
+      <p class="lead">La G9, soprattutto dopo gli aggiornamenti firmware, è una macchina video sorprendentemente capace per la sua categoria. Conoscere i formati ti evita di scoprire i limiti sul set.</p>
+
+      <div class="card teal">
+        <span class="badge all">Cosa può fare la G9</span>
+        <h3>Capacità video chiave</h3>
+        <table class="tbl">
+          <thead><tr><th>Modalità</th><th>Dettaglio</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>4K 60p / 50p</td><td>3840×2160, alta frequenza</td><td>Limite ~10 min per clip</td></tr>
+            <tr><td>4K 30p / 25p / 24p</td><td>10-bit 4:2:2 interno*</td><td>Limite ~29:59 per clip</td></tr>
+            <tr><td>FHD fino a 60p</td><td>10-bit possibile, Long GOP</td><td>Molto dettagliato</td></tr>
+            <tr><td>VFR (slow-mo)</td><td>4K 2–60 fps · FHD 2–180 fps</td><td>Niente audio/AF in VFR</td></tr>
+          </tbody>
+        </table>
+        <p class="desc" style="font-size:.85rem; margin-top:8px">*Il 10-bit 4:2:2 interno a 24/25/30p è arrivato con il firmware 2.0. Tieni il firmware aggiornato.</p>
+      </div>
+
+      <div class="card amber">
+        <span class="badge inter">Cosa significano i numeri</span>
+        <h3>Bit depth e croma in parole semplici</h3>
+        <ul class="dots">
+          <li><strong>8-bit vs 10-bit:</strong> il 10-bit registra molte più sfumature di colore (oltre un miliardo contro ~16 milioni). In grading evita le "fasce" (banding) nei cieli e nelle sfumature. <em class="tip">Per il cinema, punta al 10-bit.</em></li>
+          <li><strong>4:2:0 vs 4:2:2:</strong> il croma 4:2:2 conserva più informazione di colore: meglio per chroma key e grading spinto.</li>
+          <li><strong>Bitrate:</strong> più alto = file più grande ma più qualità. Per il look migliore scegli le opzioni a bitrate più alto disponibili nella modalità che usi.</li>
+        </ul>
+      </div>
+
+      <div class="card crimson">
+        <span class="badge neo">Setup iniziale video</span>
+        <h3>Preparare la G9 per girare</h3>
+        <ol class="steps">
+          <li>Usa una scheda <strong>SD UHS-II V60/V90</strong>: indispensabile per i bitrate alti senza interruzioni.</li>
+          <li>Ruota il selettore sulla <strong>Modalità Filmato Creativo</strong> (icona videocamera).</li>
+          <li>Imposta <span class="km">Formato registrazione</span> e <span class="km">Qualità reg.</span> con la risoluzione/frame rate desiderati.</li>
+          <li>Attiva i <strong>vu-meter audio</strong>, l'<strong>istogramma/waveform</strong> e lo <strong>zebra</strong> sullo schermo.</li>
+          <li>Imposta sistema video coerente con il tuo paese: <strong>PAL</strong> (25/50p, Europa) o <strong>NTSC</strong> (24/30/60p).</li>
+          <li>Porta una <strong>seconda batteria</strong> o un'alimentazione USB: il video consuma molto.</li>
+        </ol>
+      </div>
+
+      <div class="callout warn"><span class="ic">⏱️</span><div><b>Attenzione ai limiti di durata.</b> In 4K 50/60p la registrazione si ferma intorno ai <b>10 minuti</b> per clip; negli altri modi a circa <b>29:59</b>. Per eventi lunghi pianifica le riprese o usa frame rate più bassi.</div></div>
+    </section>
+
+    <!-- ===================== 03 FRAME RATE ===================== -->
+    <section id="framerate" class="page-section">
+      <div class="sec-head"><span class="sec-num">03</span>
+        <div><h2>Frame Rate & Slow Motion</h2><span class="sub">la cadenza dell'immagine</span></div></div>
+
+      <p class="lead">Il frame rate è il numero di fotogrammi al secondo. Determina la "sensazione" del movimento: il cinema vive a 24/25 fps, la TV a 30, lo slow-motion nasce girando ad alta frequenza e riproducendo a velocità normale.</p>
+
+      <div class="card amber">
+        <span class="badge all">La mappa dei frame rate</span>
+        <h3>Quale usare e quando</h3>
+        <table class="tbl">
+          <thead><tr><th>fps</th><th>Sensazione</th><th>Uso ideale</th></tr></thead>
+          <tbody>
+            <tr><td>24p</td><td>Cinema classico</td><td>Narrativa, look filmico, NTSC</td></tr>
+            <tr><td>25p</td><td>Cinema europeo</td><td>Standard PAL, broadcast EU</td></tr>
+            <tr><td>30p</td><td>Naturale, "video"</td><td>Interviste, social, web</td></tr>
+            <tr><td>50/60p</td><td>Fluidissimo</td><td>Sport, action, slow-mo 2×</td></tr>
+            <tr><td>VFR fino a 180p (FHD)</td><td>Slow-mo estremo</td><td>Dettagli, B-roll, gocce, sport</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram">
+        <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+          <text x="350" y="22" fill="var(--muted)" font-size="11" text-anchor="middle">SLOW MOTION: gira veloce → riproduci a 24/25p</text>
+          <rect x="60" y="50" width="180" height="44" rx="8" fill="rgba(255,87,71,.1)" stroke="#ff5747"/>
+          <text x="150" y="70" fill="#ff5747" font-size="11" text-anchor="middle">Gira a 60 fps</text>
+          <text x="150" y="86" fill="var(--muted)" font-size="9" text-anchor="middle">in 4K</text>
+          <line x1="240" y1="72" x2="320" y2="72" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar)"/>
+          <rect x="320" y="50" width="180" height="44" rx="8" fill="rgba(255,178,46,.1)" stroke="#ffb22e"/>
+          <text x="410" y="70" fill="#ffb22e" font-size="11" text-anchor="middle">Timeline 24/25p</text>
+          <text x="410" y="86" fill="var(--muted)" font-size="9" text-anchor="middle">= 2.5× più lento</text>
+          <line x1="500" y1="72" x2="580" y2="72" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar)"/>
+          <rect x="560" y="50" width="120" height="44" rx="8" fill="rgba(63,214,196,.1)" stroke="#3fd6c4"/>
+          <text x="620" y="74" fill="#3fd6c4" font-size="11" text-anchor="middle">Effetto fluido</text>
+          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="var(--dim)"/></marker></defs>
+        </svg>
+        <div class="cap">La logica dello slow-motion · più fps in ripresa, meno fps in riproduzione</div>
+      </div>
+
+      <div class="card teal">
+        <span class="badge inter">Tutorial · slow-motion VFR</span>
+        <h3>Girare uno slow-motion sulla G9</h3>
+        <ol class="steps">
+          <li>In Modalità Filmato Creativo entra in <span class="km">Frequenza fotogrammi variabile (VFR)</span> e attivala.</li>
+          <li>Imposta la frequenza di ripresa: es. <span class="k">120 fps</span> in FHD per uno slow-mo morbido a 4-5×.</li>
+          <li>Imposta lo shutter coerente con il frame rate di ripresa (per 120 fps, ~1/250 s).</li>
+          <li>Aggiungi luce: ad alti fps serve molta luce perché lo shutter è veloce.</li>
+          <li><strong>Ricorda:</strong> in VFR <em class="tip">non c'è audio né autofocus</em>. Metti a fuoco in MF e registra l'audio a parte se serve.</li>
+        </ol>
+      </div>
+
+      <div class="callout warn"><span class="ic">🌍</span><div><b>Coerenza PAL/NTSC.</b> Non mescolare 25p e 30p (o 24p e 25p) nello stesso progetto: in montaggio crea micro-scatti. Scegli un sistema e restaci. In Europa il default sano è <b>25p / 50p</b>.</div></div>
+    </section>
+
+    <!-- ===================== 04 SHUTTER 180 ===================== -->
+    <section id="shutter" class="page-section">
+      <div class="sec-head"><span class="sec-num">04</span>
+        <div><h2>La Regola dei 180°</h2><span class="sub">il segreto del motion blur cinematografico</span></div></div>
+
+      <p class="lead">È la regola più importante e più ignorata. Il mosso morbido e naturale del cinema nasce impostando il <strong>tempo di otturazione al doppio del frame rate</strong>. Sbagliarlo rende il video "strano": o troppo fluido e finto, o troppo a scatti.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+          <text x="350" y="22" fill="#ffd479" font-size="13" text-anchor="middle">SHUTTER ≈ FRAME RATE × 2</text>
+          <g text-anchor="middle">
+            <rect x="60" y="55" width="170" height="80" rx="10" fill="rgba(255,178,46,.08)" stroke="#ffb22e"/>
+            <text x="145" y="82" fill="#ffb22e" font-size="13">24/25p</text>
+            <text x="145" y="106" fill="var(--ink)" font-size="16">→ 1/50 s</text>
+            <text x="145" y="126" fill="#7fd17f" font-size="9">mosso naturale ✓</text>
+            <rect x="265" y="55" width="170" height="80" rx="10" fill="rgba(63,214,196,.08)" stroke="#3fd6c4"/>
+            <text x="350" y="82" fill="#3fd6c4" font-size="13">30p</text>
+            <text x="350" y="106" fill="var(--ink)" font-size="16">→ 1/60 s</text>
+            <text x="350" y="126" fill="#7fd17f" font-size="9">naturale ✓</text>
+            <rect x="470" y="55" width="170" height="80" rx="10" fill="rgba(255,87,71,.08)" stroke="#ff5747"/>
+            <text x="555" y="82" fill="#ff5747" font-size="13">50/60p</text>
+            <text x="555" y="106" fill="var(--ink)" font-size="16">→ 1/100–125 s</text>
+            <text x="555" y="126" fill="#7fd17f" font-size="9">fluido ✓</text>
+          </g>
+        </svg>
+        <div class="cap">Tabella shutter · imposta sempre il doppio (circa) del frame rate</div>
+      </div>
+
+      <div class="card amber">
+        <span class="badge inter">Il problema della luce esterna</span>
+        <h3>Perché ti servono i filtri ND</h3>
+        <p class="desc">All'aperto, con shutter fisso a 1/50 e diaframma aperto per lo sfondo sfocato, l'immagine è troppo luminosa. La tentazione è alzare lo shutter — ma <strong>perderesti il mosso cinematografico</strong>.</p>
+        <ul class="dots">
+          <li>La soluzione corretta è un <strong>filtro ND</strong> (densità neutra): occhiali da sole per l'obiettivo. Riduce la luce senza toccare shutter né diaframma.</li>
+          <li>Un <strong>ND variabile</strong> (es. ND2–ND400) è comodissimo: regoli la densità ruotando l'anello fino a esporre bene a 1/50.</li>
+          <li>Tieni gli ISO al minimo nativo e lascia che sia l'ND a gestire la luce in eccesso.</li>
+        </ul>
+      </div>
+
+      <div class="callout danger"><span class="ic">🚫</span><div><b>L'errore da non fare.</b> Mettere lo shutter a 1/2000 per "congelare" tutto in un video parlato: il risultato è il tipico effetto "soap opera/videogioco" a scatti. A meno che tu non voglia un look stilizzato (es. scene d'azione tese), resta sulla regola dei 180°.</div></div>
+    </section>
+
+    <!-- ===================== 05 COLORE ===================== -->
+    <section id="colore" class="page-section">
+      <div class="sec-head"><span class="sec-num">05</span>
+        <div><h2>Profili Colore (Photo Style)</h2><span class="sub">la base del tuo look</span></div></div>
+
+      <p class="lead">La G9 offre diversi profili immagine ("Stili Foto") che cambiano contrasto e saturazione di partenza. Scegliere il profilo giusto significa decidere quanto lavoro vuoi fare in post — e quanta libertà avere.</p>
+
+      <div class="card amber">
+        <span class="badge all">I profili che contano per il video</span>
+        <h3>Quale scegliere</h3>
+        <table class="tbl">
+          <thead><tr><th>Profilo</th><th>Caratteristica</th><th>Per chi</th></tr></thead>
+          <tbody>
+            <tr><td>Standard / Natural</td><td>Pronto all'uso, contrasto medio</td><td>Principianti, nessun grading</td></tr>
+            <tr><td>Cinelike D</td><td>Piatto, priorità gamma dinamica</td><td>Grading leggero/medio</td></tr>
+            <tr><td>Cinelike V</td><td>Piatto, più contrasto/saturazione</td><td>Look cinema con meno post</td></tr>
+            <tr><td>Like709</td><td>Curva broadcast, alte luci protette</td><td>Pronto, semi-pro</td></tr>
+            <tr><td>V-Log L*</td><td>Massima gamma (12 stop), molto piatto</td><td>Pro, grading completo</td></tr>
+          </tbody>
+        </table>
+        <p class="desc" style="font-size:.85rem; margin-top:8px">*V-Log L richiede l'upgrade a pagamento — vedi sezione dedicata.</p>
+      </div>
+
+      <div class="diagram">
+        <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+          <text x="350" y="20" fill="var(--muted)" font-size="11" text-anchor="middle">↑ più piatto = più libertà in post, ma più lavoro</text>
+          <rect x="40" y="45" width="620" height="26" rx="6" fill="url(#grad1)"/>
+          <defs><linearGradient id="grad1" x1="0" x2="1"><stop offset="0" stop-color="#7fd17f"/><stop offset="0.5" stop-color="#ffb22e"/><stop offset="1" stop-color="#ff5747"/></linearGradient></defs>
+          <text x="90" y="105" fill="#7fd17f" font-size="10" text-anchor="middle">Standard</text>
+          <text x="90" y="120" fill="var(--dim)" font-size="8" text-anchor="middle">zero post</text>
+          <text x="260" y="105" fill="#ffd479" font-size="10" text-anchor="middle">Cinelike D/V</text>
+          <text x="260" y="120" fill="var(--dim)" font-size="8" text-anchor="middle">post leggero</text>
+          <text x="440" y="105" fill="#ffb22e" font-size="10" text-anchor="middle">Like709</text>
+          <text x="440" y="120" fill="var(--dim)" font-size="8" text-anchor="middle">broadcast</text>
+          <text x="610" y="105" fill="#ff5747" font-size="10" text-anchor="middle">V-Log L</text>
+          <text x="610" y="120" fill="var(--dim)" font-size="8" text-anchor="middle">grading pieno</text>
+        </svg>
+        <div class="cap">Lo spettro dei profili · da "pronto" (sinistra) a "massima libertà" (destra)</div>
+      </div>
+
+      <div class="card teal">
+        <span class="badge neo">Consiglio per principianti</span>
+        <h3>Non partire da V-Log!</h3>
+        <p class="desc">Il log è potente ma richiede esposizione precisa e grading. Se sei all'inizio:</p>
+        <ul class="dots">
+          <li>Parti da <strong>Cinelike D</strong> con contrasto e nitidezza leggermente abbasati: look morbido e gradevole con grading minimo.</li>
+          <li>Oppure <strong>Standard</strong> con saturazione −1 e contrasto −1 per un'immagine pulita pronta da pubblicare.</li>
+          <li>Quando padroneggi esposizione e montaggio, allora passa a V-Log L per spremere la massima gamma dinamica.</li>
+        </ul>
+      </div>
+
+      <div class="card crimson">
+        <span class="badge inter">Settaggi fini del profilo</span>
+        <h3>Regola contrasto, nitidezza, NR</h3>
+        <ul class="dots">
+          <li><strong>Nitidezza (Sharpness) bassa o negativa:</strong> l'eccesso di sharpening digitale rende l'immagine "croccante" e finta. Riducila per un look più organico/filmico.</li>
+          <li><strong>Riduzione rumore (NR) bassa:</strong> troppa NR impasta i dettagli. Tienila contenuta e gestisci il rumore in post.</li>
+          <li><strong>Saturazione moderata:</strong> i colori troppo carichi tradiscono il "video". Il cinema tende a palette più controllate.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 06 V-LOG L ===================== -->
+    <section id="vlog" class="page-section">
+      <div class="sec-head"><span class="sec-num">06</span>
+        <div><h2>V-Log L — Massima Gamma Dinamica</h2><span class="sub">il profilo dei professionisti</span></div></div>
+
+      <p class="lead">V-Log L è un profilo logaritmico che porta la gamma dinamica della G9 <strong>da circa 10 a 12 stop</strong>, registrando un'immagine molto piatta e desaturata che conserva enorme dettaglio nelle alte e basse luci. Sulla G9 si attiva con un <strong>upgrade firmware a pagamento</strong>.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+          <text x="350" y="20" fill="#3fd6c4" font-size="11" text-anchor="middle">V-LOG cattura più dettaglio agli estremi</text>
+          <line x1="80" y1="170" x2="640" y2="170" stroke="var(--line)"/>
+          <line x1="80" y1="40" x2="80" y2="170" stroke="var(--line)"/>
+          <text x="360" y="192" fill="var(--dim)" font-size="9" text-anchor="middle">luce in scena →</text>
+          <path d="M80,160 C200,120 260,55 360,50 L640,50" fill="none" stroke="#ff5747" stroke-width="2.5"/>
+          <text x="560" y="42" fill="#ff5747" font-size="9">Standard (taglia le luci)</text>
+          <path d="M80,150 C260,110 460,80 640,68" fill="none" stroke="#3fd6c4" stroke-width="2.5"/>
+          <text x="540" y="84" fill="#3fd6c4" font-size="9">V-Log L (recupera)</text>
+        </svg>
+        <div class="cap">Curva concettuale · il log "comprime" le alte luci invece di tagliarle</div>
+      </div>
+
+      <div class="card teal">
+        <span class="badge pro">Tutorial · esporre V-Log L correttamente</span>
+        <h3>La regola: esponi sul grigio medio</h3>
+        <p class="desc">L'esposizione corretta di un profilo logaritmico è scientifica:</p>
+        <ol class="steps">
+          <li>Attiva lo <strong>zebra</strong> e impostalo al <span class="k">75%</span> per controllare le alte luci.</li>
+          <li>Esponi così che le alte luci importanti tocchino lo zebra senza "bruciarsi".</li>
+          <li>Per ridurre il rumore puoi <strong>sovraesporre leggermente</strong> (1/2–1 stop) e riportare giù in post (tecnica ETTR).</li>
+          <li>Usa the <strong>waveform</strong> per leggere i livelli con precisione.</li>
+          <li>Applica una <strong>LUT di monitoraggio</strong> sullo schermo per vedere un'anteprima "normale" mentre giri piatto.</li>
+        </ol>
+      </div>
+
+      <div class="dd">
+        <div class="col do">
+          <h5>✅ Usa V-Log L se</h5>
+          <ul>
+            <li>Giri in 10-bit e farai grading in post.</li>
+            <li>Hai scene ad alto contrasto (controluce, finestre, tramonti).</li>
+            <li>Sai esporre con zebra/waveform e cartoncino grigio.</li>
+            <li>Vuoi la massima coerenza con altre camere Panasonic.</li>
+          </ul>
+        </div>
+        <div class="col dont">
+          <h5>⛔ Evitalo se</h5>
+          <ul>
+            <li>Giri in 8-bit: il log in 8-bit fa banding e rumore (preferisci Cinelike).</li>
+            <li>Non hai tempo/voglia di gradare ogni clip.</li>
+            <li>Sei alle prime armi con l'esposizione.</li>
+            <li>Consegni subito senza passaggio in software di editing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout warn"><span class="ic">📉</span><div><b>Log + 8-bit = problemi.</b> Il vantaggio del log si esprime con il 10-bit. Sulla G9 assicurati di registrare in 10-bit 4:2:2 (24/25/30p) quando usi V-Log L. In 8-bit, Cinelike D dà risultati più puliti.</div></div>
+    </section>
+
+    <!-- ===================== 07 ESPOSIZIONE ===================== -->
+    <section id="esposizione" class="page-section">
+      <div class="sec-head"><span class="sec-num">07</span>
+        <div><h2>Esposizione & Colore in Ripresa</h2><span class="sub">ISO, bilanciamento bianco, strumenti</span></div></div>
+
+      <p class="lead">In video, una volta fissati shutter e diaframma, restano due leve per la luce: <strong>ISO</strong> e <strong>filtri ND</strong>. Aggiungi un bilanciamento del bianco coerente e gli strumenti di lettura, e l'immagine è sotto controllo.</p>
+
+      <div class="card amber">
+        <span class="badge inter">Tutorial · esporre in M</span>
+        <h3>L'ordine giusto delle operazioni</h3>
+        <ol class="steps">
+          <li>Imposta il <strong>frame rate</strong> (es. 25p) e lo <strong>shutter</strong> (1/50).</li>
+          <li>Scegli il <strong>diaframma</strong> per la profondità di campo desiderata.</li>
+          <li>Imposta l'<strong>ISO</strong>: parti dal valore nativo più basso e alza solo se serve.</li>
+          <li>Se all'aperto è troppo luminoso, riduci la luce con il <strong>filtro ND</strong>, non con lo shutter.</li>
+          <li>Controlla con <strong>waveform/istogramma</strong> e zebra: niente alte luci bruciate.</li>
+        </ol>
+      </div>
+
+      <div class="card teal">
+        <span class="badge pro">ISO & rumore</span>
+        <h3>Sfrutta gli ISO base</h3>
+        <ul class="dots">
+          <li>In V-Log L l'ISO base parte più alto: tienilo presente per minimizzare il rumore.</li>
+          <li>In condizioni di luce scarsa, prima di alzare gli ISO valuta di aprire il diaframma o aggiungere luce.</li>
+          <li><strong>ISO Auto in video?</strong> Meglio <strong>ISO manuale</strong>: l'auto può far "pompare" la luminosità in modo indesiderato.</li>
+        </ul>
+      </div>
+
+      <div class="card crimson">
+        <span class="badge all">Bilanciamento del bianco</span>
+        <h3>Imposta i Kelvin a mano</h3>
+        <p class="desc">Il WB automatico cambia tra una clip e l'altra creando "salti" di colore in montaggio.</p>
+        <ul class="dots">
+          <li>Imposta il <strong>WB manuale in Kelvin</strong>: ~5600K luce diurna, ~3200K luce tungsteno.</li>
+          <li>Per coerenza assoluta usa un <strong>cartoncino grigio</strong> all'inizio di ogni scena.</li>
+        </ul>
+      </div>
+
+      <div class="card gold">
+        <span class="badge inter">Gli strumenti di lettura</span>
+        <h3>Zebra, Waveform, Peaking</h3>
+        <div class="strip">
+          <div class="set"><div class="lbl">Zebra</div><div class="val">Alte luci</div></div>
+          <div class="set"><div class="lbl">Waveform</div><div class="val">Livelli</div></div>
+          <div class="set"><div class="lbl">Istogramma</div><div class="val">Distribuz.</div></div>
+          <div class="set"><div class="lbl">Peaking</div><div class="val">Fuoco</div></div>
+        </div>
+        <ul class="dots">
+          <li><strong>Zebra:</strong> strisce sulle zone troppo chiare. Impostala su 95-100% per i bianchi puri, o 70-75% per misurare la pelle/grigio in V-Log.</li>
+          <li><strong>Waveform monitor:</strong> grafico dei livelli di luminanza. Lo strumento più affidabile per esporre con precisione.</li>
+          <li>Attivali da <span class="km">MENU ▸ Custom ▸ Monitor / Display</span> e assegnali a un tasto Fn.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 08 FOCUS ===================== -->
+    <section id="focus" class="page-section">
+      <div class="sec-head"><span class="sec-num">08</span>
+        <div><h2>Messa a Fuoco in Video</h2><span class="sub">il DFD e perché spesso conviene il manuale</span></div></div>
+
+      <p class="lead">In video la messa a fuoco è critica: un fuoco che "balla" rovina la ripresa. La G9 usa il sistema <strong>DFD a contrasto + AI</strong>, ottimo per le foto, ma in video può "pulsare" inseguendo i soggetti. Conoscere quando affidarsi all'AF e quando passare al manuale fa la differenza.</p>
+
+      <div class="card amber">
+        <span class="badge all">AF-C in video: pro e contro</span>
+        <h3>Quando l'autofocus continuo va bene</h3>
+        <ul class="dots">
+          <li><strong>Funziona bene:</strong> soggetto singolo, buona luce, ottica nativa Panasonic, movimento prevedibile.</li>
+          <li><strong>Regola la velocità AF e la sensibilità di tracking</strong> nel menu video: rallentare l'AF rende i cambi di fuoco più "cinematografici".</li>
+          <li><strong>Sbaglia:</strong> luce scarsa, basso contrasto. In questi casi passa al manuale.</li>
+        </ul>
+      </div>
+
+      <div class="card teal">
+        <span class="badge pro">Tutorial · fuoco manuale + peaking</span>
+        <h3>Il metodo più affidabile</h3>
+        <ol class="steps">
+          <li>Passa a <strong>MF</strong>. Attiva il <strong>focus peaking</strong>: i bordi a fuoco si colorano.</li>
+          <li>Usa l'<strong>ingrandimento</strong> (focus assist) per verificare il fuoco prima di registrare.</li>
+          <li>Per un <strong>pull focus</strong>: segna due punti di fuoco e ruota lentamente la ghiera durante la ripresa.</li>
+          <li>Con soggetti fermi (intervista), <strong>blocca il fuoco</strong> e non toccarlo per evitare pulsazioni indesiderate.</li>
+        </ol>
+      </div>
+
+      <div class="callout danger"><span class="ic">🎯</span><div><b>Profondità di campo sottile.</b> Con ottiche luminose a f/1.4–2 in 4K, basta un piccolo spostamento per uscire dal fuoco. Per le interviste statiche valuta f/2.8–4 per avere più margine.</div></div>
+    </section>
+
+    <!-- ===================== 09 MOVIMENTO ===================== -->
+    <section id="movimento" class="page-section">
+      <div class="sec-head"><span class="sec-num">09</span>
+        <div><h2>Movimento & Stabilizzazione</h2><span class="sub">come muovere la camera senza nausea</span></div></div>
+
+      <p class="lead">La G9 ha uno dei migliori stabilizzatori sul sensore della categoria: il <strong>Dual I.S. 2 a 5 assi</strong>. Permette riprese a mano libera sorprendentemente stabili.</p>
+
+      <div class="card amber">
+        <span class="badge inter">Stabilizzazione</span>
+        <h3>I.S., E-Stabilization e ottiche</h3>
+        <ul class="dots">
+          <li>Con ottiche Panasonic stabilizzate: lavora il <strong>Dual I.S. 2</strong> (sensore + obiettivo).</li>
+          <li>Con ottiche non stabilizzate (es. i tuoi Sigma): lavora solo l'<strong>IBIS del corpo</strong>, comunque eccezionale.</li>
+          <li>Attiva l'<strong>E-Stabilization (elettronica)</strong> per camminare: ritaglia un po' l'immagine ma compensa il passo.</li>
+          <li>Inserisci a mano la <strong>lunghezza focale</strong> per ottiche manuali/adattate, così l'IBIS sa quanto compensare.</li>
+        </ul>
+      </div>
+
+      <div class="card teal">
+        <span class="badge all">Tecniche di ripresa</span>
+        <h3>I movimenti del linguaggio cinema</h3>
+        <table class="tbl">
+          <thead><tr><th>Movimento</th><th>Come</th><th>Quando</th></tr></thead>
+          <tbody>
+            <tr><td>Statico</td><td>Treppiede, camera ferma</td><td>Dialoghi, interviste</td></tr>
+            <tr><td>Pan / Tilt</td><td>Testa fluida, lento e costante</td><td>Rivelare un ambiente</td></tr>
+            <tr><td>Carrello (dolly)</td><td>Slider o gimbal in avanti/lato</td><td>Avvicinarsi</td></tr>
+            <tr><td>Handheld</td><td>IBIS + ninja walk</td><td>Energia, stile documentaristico</td></tr>
+            <tr><td>Gimbal</td><td>Stabilizzatore motorizzato</td><td>Movimenti fluidi complessi</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card crimson">
+        <span class="badge inter">Camminare senza gimbal</span>
+        <h3>La tecnica del "ninja walk"</h3>
+        <ol class="steps">
+          <li>Piega leggermente le <strong>ginocchia</strong> e cammina rollando dal tallone alla punta.</li>
+          <li>Tieni i <strong>gomiti aderenti al corpo</strong>, la camera vicina al petto.</li>
+          <li><strong>Espira</strong> lentamente mentre cammini per ridurre i sobbalzi.</li>
+        </ol>
+      </div>
+
+      <div class="callout warn"><span class="ic">📐</span><div><b>Treppiede = stabilizzazione OFF.</b> Su cavalletto disattiva l'I.S. per evitare micro-derive del sensore. Riattivalo solo a mano libera.</div></div>
+    </section>
+
+    <!-- ===================== 10 AUDIO ===================== -->
+    <section id="audio" class="page-section">
+      <div class="sec-head"><span class="sec-num">10</span>
+        <div><h2>Audio — Metà del Film</h2><span class="sub">il pubblico perdona l'immagine, non il suono</span></div></div>
+
+      <p class="lead">Un'immagine mediocre con audio pulito è guardabile; un'immagine bellissima con audio scadente è insostenibile. Sfrutta l'ingresso 3.5 mm e i vu-meter della tua G9.</p>
+
+      <div class="card amber">
+        <span class="badge all">Scegliere il microfono</span>
+        <h3>Shotgun, wireless o registratore</h3>
+        <table class="tbl">
+          <thead><tr><th>Tipo</th><th>Quando</th><th>Esempio</th></tr></thead>
+          <tbody>
+            <tr><td>Shotgun on-camera</td><td>Soggetto vicino, B-roll, ambiente</td><td>Sennheiser MKE 400</td></tr>
+            <tr><td>Wireless lavalier</td><td>Soggetto lontano, interviste</td><td>DJI Mic Mini</td></tr>
+            <tr><td>Registratore esterno</td><td>Massima qualità, sync in post</td><td>Zoom, Tascam</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card teal">
+        <span class="badge inter">Tutorial · livelli audio corretti</span>
+        <h3>La regola dei vu-meter</h3>
+        <ol class="steps">
+          <li>Collega il microfono al jack 3.5 mm e attiva i <strong>vu-meter</strong> sullo schermo.</li>
+          <li>Regola il <strong>livello di registrazione</strong> affinché il parlato oscilli tra <span class="k">−12 e −6 dB</span>.</li>
+          <li>I preamp della G9 sono rumorosi: meglio <strong>dare segnale forte dal microfono</strong> (es. DJI Mic Mini) e tenere il gain camera basso (es. -6 dB).</li>
+          <li><strong>Monitora in cuffia</strong> per accorgerti subito di interferenze o fruscii.</li>
+        </ol>
+      </div>
+
+      <div class="dd">
+        <div class="col do">
+          <h5>✅ Fai così</h5>
+          <ul>
+            <li>Avvicina il microfono alla sorgente.</li>
+            <li>Usa il deadcat all'aperto.</li>
+            <li>Registra il "silenzio ambiente" di sicurezza.</li>
+          </ul>
+        </div>
+        <div class="col dont">
+          <h5>⛔ Evita</h5>
+          <ul>
+            <li>Non spingere il gain camera al massimo.</li>
+            <li>Non affidarti al microfono interno per il parlato primario.</li>
+            <li>Non registrare mai senza monitorare in cuffia.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 11 POST ===================== -->
+    <section id="post" class="page-section">
+      <div class="sec-head"><span class="sec-num">11</span>
+        <div><h2>Post-produzione & Color Grading</h2><span class="sub">dove l'immagine prende vita</span></div></div>
+
+      <p class="lead">Il file che esce dalla fotocamera in V-Log è solo il "negativo". Il look finale nasce in montaggio.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 720 130" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+          <g text-anchor="middle">
+            <rect x="20" y="45" width="140" height="44" rx="8" fill="rgba(255,87,71,.1)" stroke="#ff5747"/>
+            <text x="90" y="64" fill="#ff5747" font-size="10">Clip V-Log</text>
+            <text x="90" y="80" fill="var(--muted)" font-size="8">piatta, desaturata</text>
+            <line x1="160" y1="67" x2="200" y2="67" stroke="var(--dim)" stroke-width="2" marker-end="url(#a2)"/>
+            <rect x="200" y="45" width="140" height="44" rx="8" fill="rgba(255,178,46,.1)" stroke="#ffb22e"/>
+            <text x="270" y="64" fill="#ffb22e" font-size="10">Normalizza</text>
+            <text x="270" y="80" fill="var(--muted)" font-size="8">LUT → Rec.709</text>
+            <line x1="340" y1="67" x2="380" y2="67" stroke="var(--dim)" stroke-width="2" marker-end="url(#a2)"/>
+            <rect x="380" y="45" width="140" height="44" rx="8" fill="rgba(63,214,196,.1)" stroke="#3fd6c4"/>
+            <text x="450" y="64" fill="#3fd6c4" font-size="10">Bilancia</text>
+            <text x="450" y="80" fill="var(--muted)" font-size="8">esposiz. + WB + pelle</text>
+            <line x1="520" y1="67" x2="560" y2="67" stroke="var(--dim)" stroke-width="2" marker-end="url(#a2)"/>
+            <rect x="560" y="45" width="140" height="44" rx="8" fill="rgba(255,212,121,.12)" stroke="#ffd479"/>
+            <text x="630" y="64" fill="#ffd479" font-size="10">Look creativo</text>
+            <text x="630" y="80" fill="var(--muted)" font-size="8">LUT + grana</text>
+          </g>
+          <defs><marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="var(--dim)"/></marker></defs>
+        </svg>
+        <div class="cap">Il flusso di grading · ogni passaggio su un "nodo" separato</div>
+      </div>
+
+      <div class="card amber">
+        <span class="badge pro">Tutorial · grading di una clip V-Log</span>
+        <h3>Da log a immagine finita</h3>
+        <ol class="steps">
+          <li><strong>Normalizza:</strong> Applica una conversione da V-Log a Rec.709 tramite LUT tecnica o Color Space Transform.</li>
+          <li><strong>Bilancia:</strong> Regola esposizione, contrasto e saturazione iniziale.</li>
+          <li><strong>Pelle:</strong> Ottimizza i toni dell'incarnato (un piccolo shift verso l'arancio compensa la tendenza al magenta della G9).</li>
+          <li><strong>Creatività:</strong> Aggiungi il look finale (LUT creativa, grana pellicola) su un nodo dedicato a fine catena.</li>
+        </ol>
+      </div>
+
+      <div class="card teal">
+        <span class="badge inter">Strumenti consigliati</span>
+        <h3>DaVinci Resolve</h3>
+        <p class="desc">Resolve è lo standard indiscusso per la correzione colore. Sfrutta il tracciamento maschere e gli strumenti avanzati per far splendere il girato 10-bit della fotocamera.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 12 RICETTE ===================== -->
+    <section id="ricette" class="page-section">
+      <div class="sec-head"><span class="sec-num">12</span>
+        <div><h2>Ricette Pronte all'Uso</h2><span class="sub">setup completi per ogni situazione</span></div></div>
+
+      <p class="lead">Configurazioni complete da copiare. Salvale nei banchi personalizzati C1/C2/C3 del selettore per richiamarle in un istante.</p>
+
+      <div class="card teal">
+        <span class="badge neo">Ricetta · Vlog / parlato a camera</span>
+        <h3>Semplice e affidabile</h3>
+        <ul class="dots">
+          <li>Modalità Filmato Creativo <span class="k">M</span> · <span class="k">4K 25p</span> · shutter <span class="k">1/50</span></li>
+          <li>Profilo <span class="km">Cinelike D</span> (contrasto −1, nitidezza −2) · WB Kelvin manuale</li>
+          <li>AF-C con velocità AF rallentata · ottica grandangolare (Sigma 16mm) · E-Stabilization ON</li>
+          <li>ISO base, ND variabile per esterni · microfono shotgun o DJI Mic Mini</li>
+        </ul>
+      </div>
+
+      <div class="card amber">
+        <span class="badge inter">Ricetta · Intervista cinematografica</span>
+        <h3>Soggetto seduto, look filmico</h3>
+        <ul class="dots">
+          <li>Modalità <span class="k">M</span> · <span class="k">4K 25p 10-bit</span> · shutter <span class="k">1/50</span></li>
+          <li><span class="km">V-Log L</span> (se 10-bit + grading) o Cinelike D · WB con cartoncino grigio</li>
+          <li><strong>MF bloccato</strong> + peaking · diaframma f/2.8–4 (Sigma 30mm) · treppiede, I.S. OFF</li>
+          <li>Luce laterale + fill morbido · DJI Mic Mini, sync con ciak</li>
+        </ul>
+      </div>
+
+      <div class="card crimson">
+        <span class="badge pro">Ricetta · B-roll & slow-motion</span>
+        <h3>Dettagli e movimento fluido</h3>
+        <ul class="dots">
+          <li>Modalità Filmato Creativo · <strong>VFR</strong> <span class="k">FHD 120 fps</span> (riproduzione 25p) per slow-mo ~5×</li>
+          <li>Shutter coerente (~1/250) · molta luce · <strong>MF</strong> (niente AF in VFR)</li>
+          <li>Profilo Cinelike o V-Log · diaframma aperto per profondità · gimbal o slider</li>
+        </ul>
+      </div>
+
+      <hr class="div">
+
+      <div class="card amber">
+        <span class="badge all">Bonus · tasti Fn consigliati per il video</span>
+        <h3>Personalizza per girare veloce</h3>
+        <table class="tbl">
+          <thead><tr><th>Funzione su Fn</th><th>Perché</th></tr></thead>
+          <tbody>
+            <tr><td>Waveform / Zebra on-off</td><td>Controllo esposizione istantaneo</td></tr>
+            <tr><td>Focus peaking on-off</td><td>Fuoco manuale affidabile</td></tr>
+            <tr><td>Ingrandimento fuoco (assist)</td><td>Verifica precisa prima del REC</td></tr>
+            <tr><td>Livello registrazione audio</td><td>Regolazione rapida dei vu-meter</td></tr>
+            <tr><td>VFR / frame rate</td><td>Passaggio veloce a slow-motion</td></tr>
+            <tr><td>LUT di monitoraggio</td><td>Anteprima "normale" girando in V-Log</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ===================== PAGE SECTION: SETUP & ATTREZZATURA ===================== -->
+<div id="setup-attrezzatura" class="page-section">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-bars"></div>
+      <div class="hero-in">
+        <div class="clap">🎬 Setup fisico · ottiche · audio · post</div>
+        <h1>Setup & <span>Attrezzatura</span></h1>
+        <p>Configura la Lumix G9 e i tuoi obiettivi Sigma 16mm e 30mm f/1.4 al massimo delle loro potenzialità. Ottimizza l'audio con il DJI Mic Mini e accelera il montaggio sulla workstation Mac M4.</p>
+        <div class="meta">
+          <span class="chip">MFT 2.0x Crop</span>
+          <span class="chip">Sigma f/1.4</span>
+          <span class="chip">DJI Mic Mini</span>
+          <span class="chip">Mac Mini M4</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="setup-sensore">
+      <div class="sec-head"><span class="sec-num">01</span>
+        <div><h2>Concetti Fondamentali</h2><span class="sub">le basi del sensore</span></div>
+      </div>
+      <div class="card teal">
+        <h3>Sensore Micro Four Thirds (MFT)</h3>
+        <p class="desc">La tua G9 utilizza un sensore da 17,3 x 13 mm. Il <strong>fattore di crop 2x</strong> moltiplica la lunghezza focale dell'obiettivo: il <span class="k">Sigma 16mm</span> diventa un <strong>32mm equivalente</strong>, perfetto per vlog e interni. Il <span class="k">Sigma 30mm</span> diventa un <strong>60mm equivalente</strong>, ideale per ritratti e interviste.</p>
+        <div class="callout info"><span class="ic">💡</span><div><b>Regola d'oro:</b> f/1.4 = massima luce + sfocato artistico (bokeh).</div></div>
+      </div>
+    </section>
+
+    <section id="setup-corpo">
+      <div class="sec-head"><span class="sec-num">02</span>
+        <div><h2>Corpo Macchina G9</h2><span class="sub">controlli essenziali</span></div>
+      </div>
+      <div class="card amber">
+        <h3>Mappa fisica per il video</h3>
+        <ul class="dots">
+          <li><strong>Pulsante rosso (retro):</strong> Avvia/arresta la registrazione video.</li>
+          <li><strong>Selettore modalità (in alto):</strong> Ruota su <span class="km">🎬 Video creativa (M)</span> per il controllo manuale completo.</li>
+          <li>Tocca il selettore anteriore per regolare l'apertura, il posteriore per lo shutter.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="setup-af">
+      <div class="sec-head"><span class="sec-num">03</span>
+        <div><h2>Intelligenza Artificiale e Autofocus</h2><span class="sub">impostazioni ottimali</span></div>
+      </div>
+      <div class="card crimson">
+        <span class="badge inter">Tutorial dal manuale</span>
+        <h3>AF Continuo per Video [AF cont.]</h3>
+        <ol class="steps">
+          <li>Imposta la levetta della modalità di messa a fuoco sul retro su <span class="km">AFC</span>.</li>
+          <li>Vai in <span class="km">MENU</span> → <span class="km">[Imm. in mov.]</span> → <span class="km">[AF cont.]</span> → <span class="km">ON</span>.</li>
+          <li>Premi <span class="km">[Fn1]</span> e seleziona <strong>Face/Eye Detection</strong>.</li>
+          <li>La fotocamera segue automaticamente volti e occhi con riquadri gialli.</li>
+        </ol>
+        <div class="callout info"><span class="ic">👤</span><div><b>Tracking:</b> Tocca un soggetto sullo schermo per agganciarlo; la G9 lo inseguirà senza perderlo.</div></div>
+      </div>
+    </section>
+
+    <section id="setup-stabilizzazione">
+      <div class="sec-head"><span class="sec-num">04</span>
+        <div><h2>Stabilizzazione a 5 Assi</h2><span class="sub">setup per ottiche fisse</span></div>
+      </div>
+      <div class="card teal">
+        <h3>Configurazione per obiettivi Sigma</h3>
+        <p class="desc">I tuoi obiettivi Sigma non hanno la stabilizzazione interna, quindi ti affidi all'IBIS del sensore.</p>
+        <ol class="steps">
+          <li>Vai in <span class="km">MENU</span> → <span class="km">[Reg]</span> → <span class="km">[Stabilizz.]</span> → Modalità funzionamento: <span class="km">Normale</span>.</li>
+          <li>Imposta manualmente la lunghezza focale in <span class="km">[Imposta lungh. focale]</span> su <strong>16</strong> o <strong>30</strong> (a seconda di quale lente monti).</li>
+          <li>Attiva <span class="km">[Stabil. elet.(Video)]</span> su <span class="km">ON</span> per compensare i movimenti durante le riprese a mano libera.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="setup-ottiche">
+      <div class="sec-head"><span class="sec-num">05</span>
+        <div><h2>Ottiche Sigma & Streaming</h2><span class="sub">il tuo arsenale visivo</span></div>
+      </div>
+      <div class="dd">
+        <div class="col do">
+          <h5>Sigma 16mm f/1.4</h5>
+          <p class="desc">Grandangolo luminoso (32mm eq.) per vlog, spazi stretti e riprese dinamiche. A f/1.4 e 1 metro di distanza, lo sfondo è piacevolmente morbido.</p>
+        </div>
+        <div class="col dont">
+          <h5 style="color:var(--amber);">Sigma 30mm f/1.4</h5>
+          <p class="desc">Teleobiettivo medio (60mm eq.) per ritratti e primi piani. Isola il soggetto con un bokeh cremoso.</p>
+        </div>
+      </div>
+      <div class="card gold">
+        <h3>Insta360 Link 2</h3>
+        <p class="desc">La tua webcam principale per streaming e riprese dinamiche alla scrivania. Sfrutta il tracciamento AI integrato e controllala tramite gesture senza toccare la tastiera.</p>
+      </div>
+    </section>
+
+    <section id="setup-audio">
+      <div class="sec-head"><span class="sec-num">06</span>
+        <div><h2>Audio Professionale</h2><span class="sub">setup DJI Mic Mini</span></div>
+      </div>
+      <div class="card teal">
+        <h3>DJI Mic Mini</h3>
+        <ul class="dots">
+          <li>Collega il ricevitore alla presa <strong>[MIC]</strong> della G9.</li>
+          <li>Imposta <span class="km">Regol.liv.mic.</span> a <strong>-6 dB</strong> sulla G9.</li>
+          <li>Attiva il <span class="km">Limitatore livello Mic.</span> su <strong>ON</strong>.</li>
+          <li>Nascondi il trasmettitore ultraleggero sotto la maglietta.</li>
+        </ul>
+        <div class="callout info"><span class="ic">🎚️</span><div><b>Livelli corretti:</b> Il parlato dovrebbe avere il picco intorno a <b>-12 dB</b> sui vu-meter della fotocamera.</div></div>
+      </div>
+    </section>
+
+    <section id="setup-post">
+      <div class="sec-head"><span class="sec-num">07</span>
+        <div><h2>Workstation & Post-Produzione</h2><span class="sub">il tuo workflow digitale e hardware</span></div>
+      </div>
+      <div class="card crimson">
+        <h3>Mac Mini M4 & DaVinci Resolve</h3>
+        <p class="desc">La potenza del chip M4 accelera enormemente DaVinci Resolve:</p>
+        <ul class="dots">
+          <li><strong>Node-based Color Grading:</strong> Sviluppa i file V-Log L o Cinelike D con precisione chirurgica.</li>
+          <li><strong>Audio Isolation:</strong> L'AI rimuoverà ogni rimbombo dal file del DJI Mic Mini usando "Voice Isolation".</li>
+          <li><strong>Magic Mask & Super Scale:</strong> Sfrutta il Neural Engine per scontornare soggetti al volo.</li>
+        </ul>
+      </div>
+      <div class="dd">
+        <div class="col do">
+          <h5>🖥️ PC Dedicati (Intel/Nvidia)</h5>
+          <p class="desc">Hai a disposizione 2 PC con architettura Intel e GPU Nvidia. Sfruttali per task computazionali intensivi come AI VFX (effetti visivi AI) o rendering complessi in appoggio al Mac M4.</p>
+        </div>
+        <div class="col do" style="background:linear-gradient(180deg,rgba(63,214,196,.09),transparent); border-color:rgba(63,214,196,.32)">
+          <h5 style="color:var(--teal);">📱 Mobile & Controllo</h5>
+          <p class="desc">Il tuo ecosistema mobile include <strong>Honor Magic 7 Pro</strong>, <strong>Tablet Honor</strong> e dispositivi <strong>Huawei</strong>. Usali per controllare la G9 a distanza tramite l'app Lumix Sync o come monitoraggio sul set.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup-workflow">
+      <div class="sec-head"><span class="sec-num">08</span>
+        <div><h2>Checklist Workflow</h2><span class="sub">prima di premere REC</span></div>
+      </div>
+      <div class="card amber">
+        <h3>Checklist pre-ripresa cinematografica</h3>
+        <ul class="dots">
+          <li>Modalità: <strong>Video creativa (M)</strong></li>
+          <li>Qualità: <strong>4K / 10-bit / 24p o 25p</strong></li>
+          <li>Otturatore: <strong>1/50 sec</strong> (Regola 180° a 25fps)</li>
+          <li>Apertura: <strong>f/1.4 – f/2.8</strong> sui Sigma</li>
+          <li>Profilo Colore: <strong>V-Log L</strong> o <strong>Cinelike D</strong></li>
+          <li>Stabilizzatore: <strong>Normale + Elettronico ON</strong></li>
+          <li>Audio: DJI Mic collegato, livello <strong>-12 dB</strong>, Limitatore ON.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ===================== PAGE SECTION: INTELLIGENZA ARTIFICIALE ===================== -->
+<div id="intelligenza-artificiale" class="page-section">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-bars"></div>
+      <div class="hero-in">
+        <div class="clap">🧠 Venus Engine · autofocus cont. · tracking AI</div>
+        <h1>Intelligenza <span>Artificiale G9</span></h1>
+        <p>Sfrutta la potenza del processore d'immagine Venus Engine e gli algoritmi di Deep Learning per un tracciamento dell'autofocus impeccabile. Estendi l'AI in post-produzione con DaVinci Resolve sul chip Apple M4.</p>
+        <div class="meta">
+          <span class="chip">Venus Engine</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">AF Tracking</span>
+          <span class="chip">AI Audio Isolation</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="ai-venus">
+      <div class="sec-head"><span class="sec-num">01</span>
+        <div><h2>Cos'è il Venus Engine</h2><span class="sub">il cervello della fotocamera</span></div>
+      </div>
+      <div class="card crimson">
+        <h3>Elaborazione e Riduzione Rumore</h3>
+        <p class="desc">Il processore Venus Engine e gli algoritmi di Deep Learning permettono di mitigare il rumore ad alti ISO e gestire i complessi calcoli dell'autofocus.</p>
+        <div class="callout info"><span class="ic">💡</span><div><b>Abbinamento consigliato:</b> L'AI dà il massimo con le ottiche luminose <b>Sigma 16mm e 30mm f/1.4</b>, compensando la profondità di campo ridotta.</div></div>
+      </div>
+    </section>
+
+    <section id="ai-autofocus">
+      <div class="sec-head"><span class="sec-num">02</span>
+        <div><h2>Intelligenza Artificiale nell'AF</h2><span class="sub">DFD e Deep Learning</span></div>
+      </div>
+      <div class="dd">
+        <div class="col do">
+          <h5>Cosa l'AI può fare (Deep Learning)</h5>
+          <ul class="dots">
+            <li><strong>Rilevamento Occhi/Corpo:</strong> Aggancia le persone anche se voltate di spalle.</li>
+            <li><strong>Riconoscimento Animali:</strong> Riconosce e traccia diverse specie.</li>
+            <li><strong>AF Tracking DFD:</strong> Segue i soggetti calcolando vettori predittivi in tempo reale.</li>
+          </ul>
+        </div>
+        <div class="col dont">
+          <h5 style="color:var(--amber);">I Limiti (Quando passare al manuale)</h5>
+          <ul class="dots">
+            <li>Inquadrature statiche in scarsa luce (focus hunting).</li>
+            <li>Slow Motion estremi (VFR): in questa modalità l'AF continuo è disattivato.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-tutorial-base">
+      <div class="sec-head"><span class="sec-num">03</span>
+        <div><h2>Tutorial: Setup AI Cinematico</h2><span class="sub">inquadra e lascia fare alla macchina</span></div>
+      </div>
+      <div class="card teal">
+        <span class="badge neo">Principiante</span>
+        <h3>Video Cinematico in AF Continuo</h3>
+        <ol class="steps">
+          <li>Imposta la levetta della modalità di messa a fuoco su <span class="km">AFC</span>.</li>
+          <li>Premi <span class="km">[Fn1]</span> e seleziona <strong>[Rilevamento persone/animali]</strong>.</li>
+          <li>Imposta in <span class="km">MENU</span> → <span class="km">[Imm. in mov.]</span> → <span class="km">[AF cont.]</span> → <strong>MODE2</strong>.</li>
+          <li>Imposta lo shutter a <strong>1/50 sec</strong> (regola dei 180° a 25fps).</li>
+          <li>Apri il diaframma a f/1.4 sul tuo Sigma per sfocare lo sfondo. L'AI manterrà il fuoco sull'occhio.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="ai-rack">
+      <div class="sec-head"><span class="sec-num">04</span>
+        <div><h2>Effetto Rack Focus Creativo</h2><span class="sub">il meglio di due mondi: AF+MF</span></div>
+      </div>
+      <div class="card amber">
+        <span class="badge inter">Intermedio</span>
+        <h3>Cambio fuoco guidato</h3>
+        <p class="desc">Sposta il fuoco da un soggetto in primo piano allo sfondo in modo fluido:</p>
+        <ol class="steps">
+          <li>Attiva <span class="km">[AF+MF]</span> nel menu personalizzato su <strong>ON</strong>.</li>
+          <li>In modalità <span class="km">AFC</span>, lascia che l'AI tracci il soggetto in primo piano.</li>
+          <li><strong>Ruota la ghiera di messa a fuoco del Sigma:</strong> la macchina passerà istantaneamente in MF attivando il Focus Peaking.</li>
+          <li>Una volta spostato il fuoco sullo sfondo, rilascia la ghiera e lascia che l'AF si riagganci se necessario.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="ai-slow">
+      <div class="sec-head"><span class="sec-num">05</span>
+        <div><h2>Slow Motion Cinematico (VFR)</h2><span class="sub">gestire l'autofocus ad alti frame rate</span></div>
+      </div>
+      <div class="card gold">
+        <span class="badge pro">Professionista</span>
+        <h3>Variable Frame Rate</h3>
+        <ol class="steps">
+          <li>Seleziona Video Creativa (M) → <span class="km">MENU</span> → <span class="km">[Filmato alta velocità]</span>.</li>
+          <li>Scegli 120fps o 180fps (FHD).</li>
+          <li><em>Attenzione:</em> Se l'AF continuo è disattivato in VFR, usa il fuoco <strong>Manuale (MF)</strong> assistito dal <span class="km">Focus Peaking</span>.</li>
+          <li>Usa tutta l'apertura (f/1.4) del Sigma per raccogliere abbastanza luce per lo shutter veloce.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="ai-post">
+      <div class="sec-head"><span class="sec-num">06</span>
+        <div><h2>L'Intelligenza Artificiale in Post-Produzione</h2><span class="sub">Mac M4 e DaVinci Resolve</span></div>
+      </div>
+      <div class="card teal">
+        <h3>Estendere l'AI nel Computer</h3>
+        <p class="desc">Usa il <strong>Neural Engine del tuo Mac Mini M4</strong> dentro DaVinci Resolve Studio per velocizzare il lavoro:</p>
+        <ul class="dots">
+          <li><strong>Voice Isolation:</strong> Isola la voce dal rumore ambientale catturato dal DJI Mic Mini in un istante.</li>
+          <li><strong>Magic Mask:</strong> Scontorna e maschera soggetti per grading localizzati veloci.</li>
+          <li><strong>Super Scale:</strong> Fai l'upscaling neurale dei file FHD 120/180fps a 4K con dettaglio preservato.</li>
+        </ul>
+        <div class="callout danger"><span class="ic">⚠️</span><div><b>NPU Dedicata:</b> Il chip M4 e la memoria unificata permettono di gestire questi calcoli complessi senza rallentamenti.</div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ===================== PAGE SECTION: LOOK CINEMA & POST ===================== -->
+<div id="look-post" class="page-section">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-bars"></div>
+      <div class="hero-in">
+        <div class="clap">🎬 Profili colore · curve gamma · 80 megapixel</div>
+        <h1>Look Cinema & <span>Post-Produzione</span></h1>
+        <p>Domina i profili colore Cinelike D e V-Log L per sbloccare la massima gamma dinamica del sensore. Tutti i segreti della modalità 80 Megapixel, delle raffiche ultra-rapide e delle scorciatoie da professionista.</p>
+        <div class="meta">
+          <span class="chip">V-Log L 12 Stop</span>
+          <span class="chip">Cinelike D / V</span>
+          <span class="chip">80MP High-Res</span>
+          <span class="chip">6K/4K Pre-Burst</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="look-nativo">
+      <div class="sec-head"><span class="sec-num">01</span>
+        <div><h2>Look Cinematografico Nativo</h2><span class="sub">nitidezza e gamma dinamica</span></div>
+      </div>
+      <div class="card teal">
+        <h3>Nitidezza Intelligente e Dettagli</h3>
+        <p class="desc">Configura i parametri interni per evitare il tipico look "video digitale" troppo artificiale.</p>
+        <ul class="dots">
+          <li><strong>Risoluzione i. (Intelligente):</strong> Impostare su <span class="km">LOW</span> o <span class="km">STANDARD</span> per texture naturali.</li>
+          <li><strong>i.Dinamico:</strong> Schiarisce le ombre preservando le alte luci (consigliato <span class="km">STANDARD</span> per video pronti).</li>
+        </ul>
+        <div class="callout info"><span class="ic">📸</span><div><b>Correzioni Ottiche:</b> La fotocamera corregge automaticamente la vignettatura dei Sigma a f/1.4 se attivi la <b>Compensazione Ombre</b>.</div></div>
+      </div>
+    </section>
+
+    <section id="look-colore">
+      <div class="sec-head"><span class="sec-num">02</span>
+        <div><h2>Curve Gamma e Colore</h2><span class="sub">scegli la tua tela</span></div>
+      </div>
+      <div class="dd">
+        <div class="col do">
+          <h5>Cinelike D</h5>
+          <p class="desc">Gamma piatta con ottimi toni della pelle e ombre morbide. Ideale se hai poco tempo per fare grading in post-produzione (suggerito: Contrasto -5, Nitidezza -2).</p>
+        </div>
+        <div class="col do" style="background:linear-gradient(180deg,rgba(255,178,46,.09),transparent); border-color:rgba(255,178,46,.32)">
+          <h5 style="color:var(--amber);">V-Log L</h5>
+          <p class="desc">Massima latitudine (12 stop di gamma dinamica) per un flusso professionale. Richiede grading accurato su DaVinci Resolve nel tuo Mac M4.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="look-vlog">
+      <div class="sec-head"><span class="sec-num">03</span>
+        <div><h2>Tutorial: V-Log L</h2><span class="sub">attivazione e configurazione</span></div>
+      </div>
+      <div class="card gold">
+        <span class="badge pro">Professionista</span>
+        <h3>Guida Ufficiale V-Log L</h3>
+        <ol class="steps">
+          <li>Se necessario, attiva la chiave d'attivazione in <span class="km">MENU</span> → <span class="km">[Setup]</span> → <span class="km">[Activate]</span>.</li>
+          <li>Ruota la ghiera in alto su <strong>🎥 Video Creativa (M)</strong>.</li>
+          <li>Imposta in <span class="km">MENU</span> → <span class="km">[Imm. in mov.]</span> → <span class="km">[Stile foto]</span> → <span class="km">[V-Log L]</span>.</li>
+          <li><strong>Esposizione:</strong> Il grigio medio al 18% in V-Log L deve essere posizionato intorno a 42-43 IRE sul waveform. Attiva il <strong>[V-Log L View Assist]</strong> per avere un'anteprima corretta a monitor.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="look-fotografia">
+      <div class="sec-head"><span class="sec-num">04</span>
+        <div><h2>80 Megapixel & Scatto</h2><span class="sub">la potenza fotografica della G9</span></div>
+      </div>
+      <div class="card crimson">
+        <h3>Modalità Alta Risoluzione</h3>
+        <p class="desc">La fotocamera combina 8 scatti in sequenza muovendo il sensore per ottenere un file da <strong>80 Megapixel equivalenti</strong>.</p>
+        <ol class="steps">
+          <li>Monta la fotocamera su un <strong>treppiede solido</strong> per evitare artefatti da movimento.</li>
+          <li>Vai in <span class="km">MENU</span> → <span class="km">[Reg]</span> → <span class="km">[Modo Alta Risoluzione]</span> → <span class="km">[Avvia]</span>.</li>
+        </ol>
+        <hr class="div">
+        <h3>Velocità di Raffica</h3>
+        <ul class="dots">
+          <li><strong>AFS / MF (Otturatore Elettronico):</strong> Fino a 60 fps con focus bloccato.</li>
+          <li><strong>AFC / AFF:</strong> Fino a 20 fps con tracciamento continuo attivo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="look-segreti">
+      <div class="sec-head"><span class="sec-num">05</span>
+        <div><h2>Scorciatoie e Segreti</h2><span class="sub">usala come un vero pro</span></div>
+      </div>
+      <div class="card amber">
+        <h3>Le Funzioni Nascoste Migliori</h3>
+        <ul class="dots">
+          <li><strong>Pre-burst 6K/4K:</strong> Inizia a registrare prima di premere a fondo l'otturatore, salvando le azioni veloci.</li>
+          <li><strong>Double Tap Zoom:</strong> Fai doppio tap sullo schermo durante la riproduzione per ingrandire al 100% e verificare il fuoco a f/1.4.</li>
+          <li><strong>Post Focus:</strong> Scatta una raffica a punti di messa a fuoco variabili e seleziona il piano di fuoco desiderato a posteriori.</li>
+        </ul>
+        <div class="callout warn"><span class="ic">⚠️</span><div><b>Modalità M:</b> Evita la modalità iA (Intelligent Auto) nel video per scongiurare variazioni automatiche impreviste di esposizione e WB.</div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ===================== PAGE SECTION: MANUALE OPERATIVO ===================== -->
+<div id="manuale-operativo-sezione" class="page-section">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-bars"></div>
+      <div class="hero-in">
+        <div class="clap">⚙️ MANUALE OPERATIVO HARDWARE & IA</div>
+        <h1>Algoritmi & <span>Look Cinema</span></h1>
+        <p>Configurazione e ottimizzazione degli algoritmi interni e del processore d'immagine per ottenere un look cinematografico impeccabile, prevenendo errori e dominando il set.</p>
+        <div class="meta">
+          <span class="chip">Deep Learning AF</span>
+          <span class="chip">Color Grading</span>
+          <span class="chip">Edge Cases</span>
+          <span class="chip">Focus Pulling</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="op-video">
+      <div class="sec-head"><span class="sec-num">01</span>
+        <div><h2>Algoritmi per la Ripresa Video</h2><span class="sub">gestione computazionale</span></div>
+      </div>
+      <p class="lead">Il raggiungimento di un look cinematografico coerente dipende interamente da come si istruiscono gli algoritmi di calcolo della fotocamera. Configurare la macchina per lavorare in modo computazionale permette di prevenire errori legati alla gestione manuale di fuochi complessi e transizioni di luce.</p>
+      
+      <div class="card amber">
+        <h3>Il Riconoscimento Intelligente del Soggetto</h3>
+        <p class="desc">Il motore hardware interno elabora le informazioni spaziali in tempo reale per identificare e tracciare le geometrie dei soggetti. Attraverso l'attivazione del <strong>Rilevamento volti/occhi / Riconoscimento viso</strong>, la macchina calcola continuamente la distanza focale ottimale sull'asse Z rispetto al sensore.</p>
+        <div class="callout warn"><span class="ic">🤖</span><div><b>Logica dell'algoritmo AF:</b> Quando si interagisce con lo schermo touch premendo sul soggetto, la macchina inizializza il <strong>Tracking AF</strong>. Il processore aggancia l'array di pixel selezionato e calcola i vettori di movimento, mantenendo il fuoco nitido anche in caso di variazioni repentine di asse o inclinazione.</div></div>
+      </div>
+
+      <div class="card teal">
+        <h3>Modulazione dei Parametri di Risposta AF</h3>
+        <p class="desc">Per simulare il lavoro di un vero <i>focus puller</i> cinematografico, l'autofocus continuo (AFC) non deve essere scattoso, ma graduale. Puoi modificare i seguenti parametri:</p>
+        <ul class="dots">
+          <li><strong>Sensibilità AF:</strong> Determina la reattività del motore nel ricalcolare il piano di messa a fuoco.</li>
+          <li><strong>Sensib. commutaz. area AF:</strong> Gestisce la tendenza a spostare il fuoco su un nuovo elemento che si interpone bruscamente.</li>
+          <li><strong>Previs. movim. soggetto:</strong> Consente di prevedere traiettoria e velocità del soggetto dai fotogrammi precedenti.</li>
+        </ul>
+      </div>
+
+      <div class="card gold">
+        <span class="badge inter">Esempio sul set</span>
+        <h3>🎥 L'inseguimento nella folla</h3>
+        <p class="desc"><strong>Obiettivo:</strong> Riprendere un attore che cammina in direzione della camera in un corridoio affollato da comparse.</p>
+        <p class="desc"><strong>Applicazione Pratica:</strong> Tocca il display sul volto del protagonista per attivare il Tracking AF. Avendo impostato una bassa <i>Sensib. commutaz. area AF</i>, il processore ignorerà le comparse che tagliano l'inquadratura, mantenendo il fuoco ancorato sul volto dell'attore principale.</p>
+      </div>
+    </section>
+
+    <section id="op-dati">
+      <div class="sec-head"><span class="sec-num">02</span>
+        <div><h2>Profili Colore e Gestione Dati</h2><span class="sub">compressione e latitudini</span></div>
+      </div>
+      
+      <div class="card crimson">
+        <h3>Spazi Colore Disponibili</h3>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Profilo Foto</th>
+              <th>Caratteristiche Algoritmiche</th>
+              <th>Utilizzo Ideale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cinelike D</strong></td>
+              <td>Curva di contrasto ottimizzata per simulare la pellicola, estendendo la gamma sulle ombre.</td>
+              <td>Produzioni rapide con grading leggero.</td>
+            </tr>
+            <tr>
+              <td><strong>Cinelike V</strong></td>
+              <td>Privilegia contrasto e vivacità dei toni direttamente in camera.</td>
+              <td>Consegne immediate senza grading.</td>
+            </tr>
+            <tr>
+              <td><strong>V-Log L</strong></td>
+              <td>Curva logaritmica pura che distribuisce linearmente i dati sui stop di esposizione.</td>
+              <td>Color grading professionale e massimizzazione dinamica.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card teal">
+        <h3>Compressione Meccanica del File</h3>
+        <p class="desc">Il processore supporta formati ad alta fedeltà come <strong>MP4 (LPCM)</strong> e <strong>MOV</strong>. Questi formati mantengono intatti i metadati audio e video a bitrate elevati, evitando gli artefatti nei gradienti di colore (es. cieli) tipici dei vecchi codec cromatici commerciali.</p>
+      </div>
+    </section>
+
+    <section id="op-workflow">
+      <div class="sec-head"><span class="sec-num">03</span>
+        <div><h2>Workflow Passo-Passo per Set</h2><span class="sub">procedura operativa esatta</span></div>
+      </div>
+      <div class="card amber">
+        <span class="badge pro">Tutorial setup base</span>
+        <h3>Configurazione Iniziale</h3>
+        <ol class="steps">
+          <li><strong>Inizializzazione Video Creativo:</strong> Ruota la ghiera fisica su <strong>M (Modalità Video Creativo)</strong> per disattivare gli automatismi e sbloccare i menu avanzati.</li>
+          <li><strong>Selezione Codec:</strong> Seleziona [Formato reg.] su <strong>MOV</strong> o <strong>MP4 (LPCM)</strong>. In [Qualità reg.] scegli <strong>4K a 24p o 25p</strong>.</li>
+          <li><strong>Regole Otturazione:</strong> Imposta lo Shutter Speed sul doppio del framerate. A 25p, usa <strong>1/50 sec</strong> per un motion blur naturale.</li>
+          <li><strong>Motori AF:</strong> Sposta il selettore su <strong>AFC</strong>. Imposta l'area di messa a fuoco su <strong>Rilevamento volti/occhi</strong>.</li>
+          <li><strong>Calibrazione Transizioni:</strong> In [Impostazioni AF Continuo (Video)], imposta la <i>Velocità AF</i> su un valore ridotto (es. -2 o -3) per transizioni fluide.</li>
+          <li><strong>Profilo Logaritmico:</strong> In [Stile Foto], seleziona <strong>V-Log L</strong> o <strong>Cinelike D</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="card gold">
+        <span class="badge inter">Esempio sul set</span>
+        <h3>🎥 Il cambio di fuoco narrativo (Rack Focus)</h3>
+        <p class="desc"><strong>Obiettivo:</strong> Spostare il fuoco da un attore sullo sfondo a un oggetto in primo piano creando una transizione drammatica.</p>
+        <p class="desc"><strong>Esecuzione:</strong> Grazie alla <i>Velocità AF</i> ridotta (Passo 5), tocca l'elemento in primo piano sul monitor touch. Il processore calcolerà la traiettoria e piloterà le lenti in modo lento e fluido, emulando una transizione manuale hollywoodiana.</p>
+      </div>
+    </section>
+
+    <section id="op-foto">
+      <div class="sec-head"><span class="sec-num">04</span>
+        <div><h2>Algoritmi Fotografia di Scena</h2><span class="sub">esposimetri e fisiognomica</span></div>
+      </div>
+      
+      <div class="card teal">
+        <h3>Memorizzazione dei Volti del Cast</h3>
+        <p class="desc">Il <strong>Riconoscimento viso</strong> avanzato registra stabilmente i dati biometrici facciali del cast. Durante lo scatto, individua il volto corrispondente a quelli archiviati e assegna priorità di fuoco ed esposizione, ignorando elementi di disturbo in primo piano.</p>
+      </div>
+
+      <div class="card crimson">
+        <h3>Ricalibrazione dell'Esposizione (Compensazione)</h3>
+        <p class="desc">La funzione <strong>[Regolaz. comp. esp.]</strong> consente di intervenire sull'algoritmo di misurazione della luce (Multi-pattern, Centrale o Spot) applicando un offset fisso all'esposimetro.</p>
+      </div>
+
+      <div class="card gold">
+        <span class="badge inter">Esempio sul set</span>
+        <h3>📸 Scatti Low-Key (Bassa Luce)</h3>
+        <p class="desc"><strong>Obiettivo:</strong> Scattare foto promozionali sul set mantenendo ombre profonde e tagli di luce netti (stile thriller).</p>
+        <p class="desc"><strong>Esecuzione:</strong> Imposta una compensazione fissa di -1 EV o -1.5 EV sull'esposimetro. L'intelligenza della fotocamera interpreterà l'ambiente scuro come lo standard corretto, evitando di "schiarire" artificialmente la scena e rovinare l'atmosfera.</p>
+      </div>
+    </section>
+
+    <section id="op-eccezioni">
+      <div class="sec-head"><span class="sec-num">05</span>
+        <div><h2>Eccezioni ed Edge Cases</h2><span class="sub">gestire e prevenire gli errori AI</span></div>
+      </div>
+      
+      <div class="callout danger">
+        <span class="ic">🛑</span>
+        <div><b>Criticita 1: Effetto compensazione in "Modalità Automatica iA".</b> Se usi la modalità iA/iA+, il processore assume il controllo totale e cambierà il bilanciamento del bianco (AWB) a metà scena, rovinando l'omogeneità cromatica. <br><b>Soluzione:</b> Usa sempre la Modalità Video Creativo (M) con WB in Kelvin (es. 5600K).</div>
+      </div>
+
+      <div class="callout danger">
+        <span class="ic">🛑</span>
+        <div><b>Criticita 2: Focus Hunting in condizioni di scarsa luminosità.</b> Al buio, l'algoritmo perde contrasto e "pulsa" alla ricerca dei bordi. <br><b>Soluzione:</b> Disattivare il tracciamento volti, passare all'Area AF a 1 zona ridotta, oppure passare in Manual Focus (MF) usando il Focus Peaking per evidenziare visivamente i piani nitidi.</div>
+      </div>
+
+      <div class="callout danger">
+        <span class="ic">🛑</span>
+        <div><b>Criticita 3: Conflitto di priorità (soggetto di spalle).</b> Nelle scene d'azione, se un attore si volta l'algoritmo perde gli occhi come riferimento primario. <br><b>Soluzione:</b> Attiva il <strong>Rilevamento del corpo umano</strong>. L'IA sposterà il calcolo sulla sagoma geometrica globale, mantenendo il fuoco sulla schiena fino a quando l'attore non tornerà frontale.</div>
+      </div>
+    </section>
+    <section id="op-tutorials">
+      <div class="sec-head"><span class="sec-num">06</span>
+        <div><h2>Tutorial Dettagliati: Configurazione G9</h2><span class="sub">i passaggi esatti sul corpo macchina</span></div>
+      </div>
+      
+      <p class="lead">Qui trovi i passaggi dettagliati, tasto per tasto, per abilitare le funzioni cinematografiche avanzate sulla tua Lumix G9. Estrai il massimo dalla macchina seguendo questi menu.</p>
+
+      <div class="card amber">
+        <span class="badge pro">Tutorial</span>
+        <h3>1. V-Log L (Attivazione e Selezione)</h3>
+        <p class="desc">V-Log L permette una registrazione Log con ricca gradazione per l'editing in post-produzione. Richiede Firmware Ver. 2.0 e la Chiave di Aggiornamento Software (DMW-SFU1).</p>
+        
+        <strong>Come Attivare la Chiave di Aggiornamento:</strong>
+        <ol class="steps">
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Setup]</span> ➔ <span class="km">[Attiva]</span>.</li>
+          <li>Seleziona <span class="km">[Esporta Codice Seriale]</span> per esportare le info della macchina sulla scheda SD. Usa questo codice per ottenere il codice di attivazione dal sito di supporto Panasonic.</li>
+          <li>Seleziona <span class="km">[Importa Codice Attivazione]</span> per abilitare V-Log L.</li>
+        </ol>
+
+        <strong>Come Selezionare V-Log L:</strong>
+        <ol class="steps">
+          <li>Imposta la ghiera dei modi su <strong>Modalità Filmato Creativo</strong> (l'icona della videocamera con la 'M').</li>
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Reg.]</span> o <span class="km">[Immagine in Movim.]</span> ➔ <span class="km">[Stile Foto]</span>.</li>
+          <li>Seleziona <span class="km">[V-Log L]</span>.</li>
+        </ol>
+      </div>
+
+      <div class="card teal">
+        <span class="badge inter">Tutorial</span>
+        <h3>2. Variable Frame Rate (VFR) per Slow Motion</h3>
+        <p class="desc">VFR permette di registrare in undercrank (fast motion) o overcrank (slow motion) (aggiunto nel Firmware Ver. 2.0).</p>
+        
+        <strong>Come Abilitare e Configurare:</strong>
+        <ol class="steps">
+          <li>Imposta la ghiera dei modi su <strong>Modalità Filmato Creativo</strong>.</li>
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Immagine in Movim.]</span> ➔ <span class="km">[Formato Reg.]</span> e scegli <span class="k">MOV</span>, <span class="k">MP4</span>, o <span class="k">AVCHD</span> (Nota: VFR non è disponibile in MP4 HEVC).</li>
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Immagine in Movim.]</span> ➔ <span class="km">[Qualità Reg.]</span> e scegli una qualità compatibile con il VFR (es. <span class="k">4K/8bit/100M/30p</span> o <span class="k">FHD/8bit/100M/60p</span>).</li>
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Video Creativo]</span> ➔ <span class="km">[Frequenza Fotogrammi Variabile]</span> e seleziona <span class="k">ON</span>.</li>
+          <li>Premi <span class="km">◄/►</span> per selezionare il frame rate desiderato (es. fino a 180 fps in FHD).</li>
+          <li>Premi <span class="k">MENU/SET</span> per confermare.</li>
+        </ol>
+      </div>
+
+      <div class="card crimson">
+        <span class="badge all">Tutorial</span>
+        <h3>3. Autofocus Continuo (AF-C) in Video e Impostazioni Personalizzate</h3>
+        
+        <strong>Come Abilitare AF-C per i Video:</strong>
+        <ol class="steps">
+          <li>Imposta la leva della modalità di messa a fuoco (sul retro) su <span class="k">AFC</span>.</li>
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Immagine in Movim.]</span> ➔ <span class="km">[AF Continuo]</span>.</li>
+          <li>Imposta su <span class="k">ON</span> (o <span class="km">MODE1</span> / <span class="km">MODE2</span> su Firmware 2.0+) affinché la macchina continui a mettere a fuoco durante la registrazione.</li>
+        </ol>
+
+        <strong>Configurare Velocità/Sensibilità dell'AF:</strong>
+        <p class="desc" style="font-size: 0.9rem; margin-top: -10px;"><em>Nota: La G9 raggruppa le opzioni di tracciamento AF Continuo nel menu Foto.</em></p>
+        <ol class="steps">
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Reg.]</span> ➔ <span class="km">[Impostazione Pers. AF(Foto)]</span>.</li>
+          <li>Seleziona un preset (da <span class="km">Set 1</span> a <span class="km">Set 4</span>) usando <span class="km">◄/►</span>.</li>
+          <li>Per regolare manualmente la sensibilità, premi <span class="km">▲/▼</span> per scegliere un parametro e <span class="km">◄/►</span> per cambiarlo:
+            <ul class="dots">
+              <li><strong>[Sensibilità AF]:</strong> Quanto velocemente il fuoco reagisce quando la distanza del soggetto cambia.</li>
+              <li><strong>[Sensibilità commutazione area AF]:</strong> Quanto velocemente l'area AF si sposta su un nuovo soggetto.</li>
+              <li><strong>[Previsione oggetto in movimento]:</strong> Previsione della traiettoria per soggetti a velocità variabile.</li>
+            </ul>
+          </li>
+          <li>Premi <span class="k">MENU/SET</span> per salvare.</li>
+        </ol>
+      </div>
+
+      <div class="card gold">
+        <span class="badge neo">Tutorial</span>
+        <h3>4. Focus Peaking</h3>
+        <p class="desc">Il Focus Peaking evidenzia i contorni delle aree a fuoco con un colore brillante, aiutandoti a ottenere un fuoco manuale precisissimo.</p>
+        
+        <strong>Come Abilitare e Configurare:</strong>
+        <ol class="steps">
+          <li>Imposta la leva della modalità di messa a fuoco su <span class="k">MF</span> (Fuoco Manuale).</li>
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Personalizzazioni]</span> ➔ <span class="km">[Monitor / Display]</span> ➔ <span class="km">[Peaking]</span>.</li>
+          <li>Seleziona <span class="km">[SET]</span> per configurare le impostazioni:
+            <ul class="dots">
+              <li><strong>[Livello di rilevamento]:</strong> Scegli <span class="k">HIGH</span> per fuoco precisissimo o <span class="k">LOW</span> per un'indicazione più ampia.</li>
+              <li><strong>[Colore display]:</strong> Seleziona il colore di evidenziazione (es. Giallo, Rosso, Verde) che contrasti bene con la scena.</li>
+            </ul>
+          </li>
+          <li>Premi <span class="k">MENU/SET</span> per confermare.</li>
+        </ol>
+      </div>
+
+      <div class="card amber">
+        <span class="badge all">Tutorial</span>
+        <h3>5. Stabilizzazione Elettronica (Video)</h3>
+        <p class="desc">Lo Stabilizzatore d'Immagine Ibrido a 5 Assi corregge elettronicamente le vibrazioni trasversali, verticali e di rollio durante le riprese video (oltre alla stabilizzazione ottica e del sensore).</p>
+        
+        <strong>Come Abilitare:</strong>
+        <ol class="steps">
+          <li>Vai su <span class="k">MENU</span> ➔ <span class="km">[Reg.]</span> ➔ <span class="km">[Stabilizzatore]</span>.</li>
+          <li>Seleziona <span class="km">[Stabilizzaz. Elett. (Video)]</span>.</li>
+          <li>Scegli <span class="k">ON</span>.</li>
+        </ol>
+        <p class="desc" style="font-size: 0.9rem;"><em>(Nota: Quando abilitato, il campo visivo si restringe leggermente - crop).</em></p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<button id="themeBtn" title="Cambia il colore dello sfondo" aria-label="Cambia il colore dello sfondo">
+  <span class="swatch"></span>
+  <span>Sfondo: <span class="lbl-name">Cinema</span></span>
+</button>
+</body>
+</html>
