@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Base - Panasonic G9 Ultimate Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/script.js" defer></script>
+<style>
+  .toc { background: var(--bg-card); padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid var(--border); }
+  .toc h4 { margin-top: 0; color: var(--gold); }
+  .toc ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: var(--text); text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="global-nav">
+  <div class="global-nav-inner">
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="01-introduzione.html">📸 Introduzione</a>
+    <a href="02-fotografia.html">📷 Fotografia</a>
+    <a href="03-video-base.html" class="active">🎬 Video Base</a>
+    <a href="04-video-avanzato.html">🎥 Video Avanzato</a>
+    <a href="05-movimento-fuoco.html">🏃 Movimento e Fuoco</a>
+    <a href="06-funzioni-speciali.html">✨ Funzioni Speciali</a>
+    <a href="07-intelligenza-artificiale.html">🤖 AI & Autofocus</a>
+    <a href="08-cinema-masterclass.html">🍿 Cinema Masterclass</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="videobase" class="page-section">
+    <div class="sec-head"><span class="sec-num">03</span>
+      <div><h2>I Fondamenti del Video (Guida Estesa)</h2><span class="sub">Framerate, Filtri ND, Audio, Codec e Luminanza per Youtube</span></div>
+    </div>
+
+    <p class="lead">Per girare video e non semplici "clip amatoriali", c'è una pre-condizione assoluta: imposta sempre la ghiera dei modi superiore sulla <strong>Modalità Filmato Creativo (M)</strong>. L'icona è una videocamera con la lettera "M". Se giri i video stando nella P o nella A, la G9 bloccherà i frame-rate migliori e cambierà la luminosità da sola rovinando il filmato.</p>
+
+    <div class="toc">
+      <h4>Indice del Capitolo</h4>
+      <ul>
+        <li><a href="#regoladoro">1. Shutter e Framerate: La Regola d'Oro (Spiegazione Semplice)</a></li>
+        <li><a href="#ndfilters">2. Sopravvivere al Sole: Il Segreto dei Filtri ND</a></li>
+        <li><a href="#audiobase">3. Audio Professionale: Limiter, Vento e Livelli</a></li>
+        <li><a href="#luci">4. Illuminazione: Il Setup a Tre Punti</a></li>
+        <li><a href="#codec">5. Che differenza c'è tra MP4, MOV e AVCHD?</a></li>
+        <li><a href="#luminanza">6. Perché i miei video su YouTube sembrano "Grigi"? (Il livello 0-255)</a></li>
+        <li><a href="#troubleshooting">7. Troubleshooting (Risoluzione Problemi Estesa)</a></li>
+      </ul>
+    </div>
+
+    <h3 id="regoladoro" style="margin-top:40px; color:var(--crimson);">1. Shutter e Framerate: La Regola d'Oro (Semplificata)</h3>
+    <p>Nelle foto, cambi il "Tempo di Scatto" (Shutter) per far entrare luce. Nei video, **NO**. Nei video, lo Shutter deve sempre restare fermo, ed è legato a quanti fotogrammi per secondo (fps) stai registrando. Questo garantisce che quando una persona muove la mano, il "mosso" (motion blur) sia identico a quello che vedresti tu al cinema.</p>
+    
+    <div class="card amber">
+      <span class="badge all">La Tabella Matematica Fissa</span>
+      <p class="desc">La formula base è: <strong>Shutter = 1 / (Framerate x 2)</strong>. Esempio:</p>
+      <table class="tbl">
+        <thead><tr><th>Formato e FPS</th><th>Shutter Obbligatorio</th><th>Quando Usarlo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>4K a 24p</strong> (o 25p)</td><td><strong>1/50 sec</strong> (Impostalo e non toccarlo più)</td><td>Cortometraggi, documentari, matrimoni "cinematici". Da la sensazione di un VERO film di Hollywood.</td></tr>
+          <tr><td><strong>4K a 30p</strong></td><td><strong>1/60 sec</strong></td><td>Youtube standard, Vlog in strada, telegiornali o TV. Immagine più fluida e realistica.</td></tr>
+          <tr><td><strong>4K a 60p</strong></td><td><strong>1/120 sec</strong> o 1/125 sec</td><td>Sport velocissimi. MA soprattutto, si usa se prevedi di passare il clip al computer e <strong>rallentarlo al 50%</strong> per fare uno Slow-Motion fluidissimo!</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="ndfilters" style="margin-top:40px; color:var(--teal);">2. Sopravvivere al Sole: Il Segreto dei Filtri ND</h3>
+    <p>C'è un sole gigantesco all'aperto. Vuoi uno sfondo super sfocato (Diaframma aperto a f/1.8). Secondo la regola di prima, il tuo tempo di scatto deve stare a 1/50 sec. Risultato? Entra talmente tanta luce che il tuo video sarà una schermata completamente BIANCA e accecante. Non puoi chiudere il tempo a 1/4000s, perché altrimenti il video va a scatti e perdi il look cinematografico. Come si fa?</p>
+
+    <div class="card neo">
+      <span class="badge inter">Metti gli occhiali da sole all'obiettivo</span>
+      <p class="desc">Devi avvitare sul tuo obiettivo un <strong>Filtro ND (Neutral Density)</strong>. È letteralmente un vetro scuro.</p>
+      <ul class="dots">
+        <li><strong>Filtri ND Variabili (VND):</strong> Per chi fa video "al volo" sono la salvezza. È un filtro con due vetri polarizzati sovrapposti. Ha un "volume" laterale. Tu giri il filtro con le dita e lui diventa magicamente sempre più scuro. In questo modo puoi sconfiggere il sole mantenendo lo sfondo sfocato e lo shutter a 1/50!</li>
+        <li><strong>⛔ Attenzione ai filtri da 20 euro! L'Effetto X:</strong> Non risparmiare su un pezzo di vetro che metti davanti a un obiettivo costoso. I filtri variabili economici (sotto i 40-50€) hanno un difetto costruttivo: se li giri per scurirli al massimo, formano un'orribile macchia nera a forma di "X" incrociata proprio in mezzo al video, distruggendolo irreparabilmente. Cerca sempre ND Variabili con <em>"Hard Stop"</em> (un blocco meccanico che ti impedisce di arrivare alla zona X).</li>
+      </ul>
+    </div>
+
+    <h3 id="audiobase" style="margin-top:40px; color:var(--gold);">3. Audio Professionale: Limiter, Vento e Livelli</h3>
+    <p>Il pubblico tollera un video leggermente sfocato. Ma spegne immediatamente il video se l'audio fischia, rimbomba o gracchia. Il microfono interno della G9 va bene, ma cattura l'audio a 360 gradi (catturando le auto, il vento, e il tuo respiro). <strong>Comprati un microfono esterno e infilalo nel jack rosso (MIC) laterale!</strong></p>
+    
+    <div class="dd">
+      <div class="col do">
+        <h5>✅ Impostare i Livelli (Pre-Amp)</h5>
+        <p>I circuiti elettrici dentro la fotocamera (Pre-Amp) sono di bassa qualità e generano un fruscìo "Ssshhh" se alzati troppo. Nel <span class="km">Menu Video ➔ Livello Reg. Microfono</span>, imposta la G9 quasi al minimo (es. a -12dB). Se il tuo microfono esterno ha un bottone (+20dB / +10dB), alza il volume da lui! Manda tanto segnale buono nella G9 "sorda", e il fruscio sparirà del tutto.</p>
+      </div>
+      <div class="col dont">
+        <h5>⛔ Tre funzioni salvavita da attivare:</h5>
+        <ul>
+          <li><strong>Limitatore Livello Mic:</strong> Mettilo su ON. Se qualcuno urla o sbatte una porta, il rumore non "esploderà" distorcendo l'audio (Clipping), ma verrà limitato da un algoritmo elettronico.</li>
+          <li><strong>Eliminazione Rumore Vento:</strong> Se sei all'aperto, accendilo su "Standard" o "Alto". La macchina taglierà le frequenze basse "bum bum" del vento sul microfono.</li>
+          <li><strong>Mic Socket (Plugin Power):</strong> Attenzione! Alcuni microfoni piccolissimi non hanno batterie proprie. Per funzionare, la G9 deve mandargli energia (corrente) tramite il cavetto. Nel menu imposta "Mic" (con o senza l'iconina del fulmine Power) in base al tuo microfono!</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 id="luci" style="margin-top:40px; color:var(--amber);">4. Illuminazione: Il Setup a Tre Punti</h3>
+    <p>Anche la G9, che è un capolavoro tecnologico, produce video mediocri in una stanza con la luce del lampadario a soffitto. L'illuminazione è il VERO segreto.</p>
+
+    <div class="card teal">
+      <span class="badge neo">La regola base di Hollywood</span>
+      <ul class="dots">
+        <li><strong>Luce 1: Key Light (Principale).</strong> Non piazzarla mai dietro alla fotocamera per puntarla "in faccia" al soggetto (appiattisce tutto come nei documentari anni '90). Piazzala lateralmente a circa 45° rispetto a te e al soggetto. Un lato della sua faccia sarà in ombra (creando il famoso contrasto drammatico).</li>
+        <li><strong>Luce 2: Fill Light (Riempimento).</strong> L'ombra sulla faccia è troppo nera e non vedi l'occhio? Aggiungi una luce molto debole sul lato opposto (o un semplice pannello bianco in polistirolo da 5 euro) per far rimbalzare un po' di luce e schiarire l'ombra senza ucciderla.</li>
+        <li><strong>Luce 3: Backlight / Hairlight (Contrasto da dietro).</strong> Nascondi una lucina dietro le spalle del soggetto e puntala verso la sua nuca/capelli (nascondendola alla vista della fotocamera). Questo creerà un "alone" brillante attorno a lui, staccandolo magicamente dallo sfondo scuro del muro dietro!</li>
+      </ul>
+    </div>
+
+    <h3 id="codec" style="margin-top:40px; color:var(--ink);">5. Che differenza c'è tra MP4, MOV e AVCHD?</h3>
+    <p>Nel menu Video, la prima voce è il Formato. Una spiegazione elementare:</p>
+    <ul class="dots">
+      <li><strong>AVCHD:</strong> Un fossile. Dimenticalo. Raggiunge a stento il Full-HD compresso. Lo tenevano per compatibilità con i vecchissimi lettori DVD.</li>
+      <li><strong>MP4:</strong> Lo standard universale. Usalo se devi girare un Vlog a 8-bit, passarlo subito all'iPad, a un amico o buttarlo su YouTube. È leggerissimo, lo leggono i frigoriferi, le lavatrici, e tutti i PC del mondo.</li>
+      <li><strong>MOV:</strong> Scegli questo per i "lavori seri" e il cinema. Solo il formato MOV sblocca le impostazioni <strong>10-bit</strong> e i formati folli come l'ALL-Intra da 400 Mbps (di cui parleremo nel capitolo avanzato). I file MOV hanno bisogno di computer discreti per essere letti fluidamente, o di Mac.</li>
+      <li><strong>MP4 HEVC (H.265):</strong> Usato spesso nelle nuove funzioni ad alta risoluzione (es. 6K). È un formato mostruosamente compresso e iper-efficiente. File piccolissimi ma qualità eccelsa. Attenzione: fa sudare tantissimo i computer (anche quelli nuovi) in post-produzione, perché la CPU deve scartarlo fotogramma per fotogramma.</li>
+    </ul>
+
+    <h3 id="luminanza" style="margin-top:40px; color:var(--amber);">6. Perché i video su YouTube sembrano "Grigi"? (Il livello 0-255)</h3>
+    <p>Hai girato un video nero con ombre profonde sulla G9. Lo vedi sul PC ed è nero. Lo carichi su YouTube, e improvvisamente le ombre e le magliette nere... diventano grigino/slavate. Com'è possibile?</p>
+
+    <div class="card crimson">
+      <span class="badge inter">Il Livello di Luminanza</span>
+      <p class="desc">La televisione e il Web parlano due "lingue" informatiche diverse. La G9 deve sapere per chi stai girando.</p>
+      <ul class="dots">
+        <li>I vecchi segnali TV considerano che il colore Nero equivalga al numero 16 (su una scala informatica) e il bianco puro al 235 (<strong>Livello 16-235</strong>). Tutto ciò che è sotto il 16 viene buttato, è "Illegale".</li>
+        <li>Internet (Youtube) e i monitor dei computer considerano il vero nero il numero ZERO, e il bianco il numero 255 (<strong>Livello 0-255</strong>).</li>
+        <li><strong>LA REGOLA:</strong> Vai in <span class="km">MENU Video ➔ Pagina 3 ➔ Livello Luminanza</span>. Seleziona <strong>0-255</strong>. Assicurati che lo sia sempre! Se invece lo imposti su 16-235 e carichi su Youtube, il tubo vedrà "16" (il tuo nero più profondo) come un Grigio, e tutto il tuo video perderà potenza sbiadendosi!</li>
+      </ul>
+    </div>
+
+    <h3 id="troubleshooting" style="margin-top:40px; color:var(--ink);">7. Troubleshooting Esteso (Risoluzione Problemi Frequenti)</h3>
+    <div class="dd">
+      <div class="col dont">
+        <h5>❓ 1. Sfarfallio! Ci sono strisce nere che si muovono nel video sotto le luci!</h5>
+        <p><strong>Causa:</strong> Sei all'interno sotto luci artificiali o neon. In Europa l'elettricità viaggia a 50Hz, negli USA a 60Hz. Le lampadine, senza che te ne accorga, "lampeggiano" 50 volte al secondo. Se tu hai la G9 impostata a 60p, vai fuori sincrono e la fotocamera registra il momento in cui la lampadina è "spenta" (le strisce scure).</p>
+        <p><strong>Soluzione Rapida:</strong> Vai su <span class="km">MENU (Chiave Inglese) ➔ Freq. Di Sistema</span> e assicurati che sia a 50.00Hz (PAL Europa). Gira a 25p o 50p, e imposta lo Shutter rispettivamente a 1/50 e 1/100. Non vedrai più le bande!</p>
+        <p><strong>Soluzione Avanzata:</strong> Se devi girare per forza a formati asincroni sotto LED scadenti (es. fari LED cinesi), la G9 ha la funzione <strong>Scan. Sincrona (Synchro Scan)</strong>. Questa ti permette di regolare lo shutter con i decimali (es. invece di 1/50 imposti 1/50.3) finché le bande non si allineano alla perfezione e spariscono.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 2. Nel menu, alcune opzioni (es. Livello Luminanza) sono ingrigite!</h5>
+        <p><strong>Causa:</strong> Stai cercando di cambiare la luminanza mentre sei in 10-Bit o in V-Log L.</p>
+        <p><strong>Soluzione:</strong> Assolutamente normale. Quando passi al fantastico mondo del 10-bit 4:2:2 (Capitolo 4), la Panasonic sa che stai facendo un lavoro ultra-serio da cinema e BLOCCA il livello di luminanza su un valore fisso o su "0-1023", per impedirti di distruggere i tuoi file. Lasciala fare.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 3. Sul monitor c'è scritto "10 Min", e al 10° minuto la registrazione si stoppa da sola!</h5>
+        <p><strong>Causa:</strong> Limiti software europei per questioni di surriscaldamento o tasse. Formati pesantissimi (come il 4K 50p o il 10-bit) hanno un blocco termico a 10 minuti (o 30 minuti).</p>
+        <p><strong>Soluzione:</strong> Se devi registrare uno spettacolo teatrale di 2 ore senza interruzioni e non puoi stare lì a rimettere "Rec" ogni mezz'ora, devi scalare a formati leggermente più base. Il Full HD o l'MP4 normale a 25/30p spesso aggirano il blocco (dipende dal firmware installato).</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 4. Ho agganciato un microfono a spillo (Lavalier) alla presa MIC, ma l'audio non entra, c'è un silenzio tombale!</h5>
+        <p><strong>Causa:</strong> Probabilmente è un microfono per cellulari. Guarda lo spinotto dorato (il jack). Ha 3 anelli neri (TRRS) o 2 anelli neri (TRS)?</p>
+        <p><strong>Soluzione:</strong> La G9 ha una porta d'ingresso per spinotti TRS (2 anelli). I cellulari usano i TRRS (3 anelli, perché includono anche le cuffie). Se hai comprato un mic economico da 10€ per iPhone, non funzionerà finché non compri un adattatore Rode SC3 (da TRRS a TRS) che converte il cavetto, o finché non compri un lavalier nativo per fotocamere.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 5. "Rec rosso intermittente": La macchina smette di registrare dicendo che la scheda di memoria è piena (e non lo è) o che è troppo lenta!</h5>
+        <p><strong>Causa:</strong> La scheda SD ha subìto una frammentazione eccessiva. Hai cancellato singoli clip al volo invece di formattare la scheda periodicamente. Il "buco" dove inserire il file video non è continuo.</p>
+        <p><strong>Soluzione:</strong> NON cancellare mai i video o le foto premendo il tasto del Cestino sulla G9 seccando file a casaccio. Salvali sul PC a fine giornata, poi rimetti la SD in macchina e fai <span class="km">Formatta SD Card</span>. È l'unico modo per avere una SD integra, deframmentata e velocissima, capace di sostenere il flusso del 4K.</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<button id="themeBtn" aria-label="Cambia tema">
+  <div class="swatch"></div>
+  <span class="lbl-name">Cinema</span>
+</button>
+
+</body>
+</html>

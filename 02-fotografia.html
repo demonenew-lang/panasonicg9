@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotografia - Panasonic G9 Ultimate Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/script.js" defer></script>
+<style>
+  .toc { background: var(--bg-card); padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid var(--border); }
+  .toc h4 { margin-top: 0; color: var(--gold); }
+  .toc ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: var(--text); text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="global-nav">
+  <div class="global-nav-inner">
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="01-introduzione.html">📸 Introduzione</a>
+    <a href="02-fotografia.html" class="active">📷 Fotografia</a>
+    <a href="03-video-base.html">🎬 Video Base</a>
+    <a href="04-video-avanzato.html">🎥 Video Avanzato</a>
+    <a href="05-movimento-fuoco.html">🏃 Movimento e Fuoco</a>
+    <a href="06-funzioni-speciali.html">✨ Funzioni Speciali</a>
+    <a href="07-intelligenza-artificiale.html">🤖 AI & Autofocus</a>
+    <a href="08-cinema-masterclass.html">🍿 Cinema Masterclass</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="fotografia" class="page-section">
+    <div class="sec-head"><span class="sec-num">02</span>
+      <div><h2>Fotografia: Oltre il Punta e Scatta</h2><span class="sub">Otturatori, Astrofotografia, Flash TTL e Impostazioni Segrete</span></div>
+    </div>
+
+    <p class="lead">Non farti spaventare dal termine "professionale". Tutte le funzioni fotografiche avanzate della G9 servono in realtà a renderti la vita *più facile* quando la luce è difficile. Impareremo a usare i flash senza impazzire e a fotografare le stelle in automatico.</p>
+
+    <div class="toc">
+      <h4>Indice del Capitolo</h4>
+      <ul>
+        <li><a href="#modalita">1. Le Modalità (A, S, M) rese semplici</a></li>
+        <li><a href="#esposimetro">2. Dire alla macchina *dove* guardare la luce</a></li>
+        <li><a href="#shutter">3. L'Otturatore Silenzioso vs Meccanico</a></li>
+        <li><a href="#flash">4. Magia col Flash: TTL e High-Speed Sync (HSS)</a></li>
+        <li><a href="#astro">5. Astrofotografia per Principianti (Starlight AF)</a></li>
+        <li><a href="#algoritmi">6. iDynamic e Colori (Cosa sono?)</a></li>
+        <li><a href="#troubleshooting">7. Troubleshooting (Risoluzione Problemi Estesa)</a></li>
+      </ul>
+    </div>
+
+    <h3 id="modalita" style="margin-top:40px; color:var(--amber);">1. Le Modalità (A, S, M) rese semplici</h3>
+    <p>Gira la ghiera principale (in alto a sinistra) su una di queste lettere per prendere il controllo artistico:</p>
+    
+    <div class="card neo">
+      <span class="badge neo">Il tuo nuovo modo di scattare</span>
+      <ul class="dots">
+        <li><strong>A (Priorità Diaframma):</strong> È la "Modalità Ritratto". Scegli un numero piccolo (es. f/1.8). Il buco nell'obiettivo si apre al massimo. Risultato? Soggetto nitidissimo e sfondo magicamente sfocato (effetto Bokeh). Vuoi tutto a fuoco? Scegli un numero alto (f/8). A tutto il resto (tempi e luminosità) pensa la macchina.</li>
+        <li><strong>S (Priorità Tempi):</strong> È la "Modalità Sport". Dimentica i diaframmi. Qui tu decidi quanto deve durare il battito di ciglia della fotocamera. Scegli 1/1000s e bloccherai a mezz'aria un cane che corre o l'acqua di una fontana.</li>
+        <li><strong>M (Manuale Totale):</strong> Fai tutto tu. Se sbagli uno dei tre parametri (Diaframma, Shutter, ISO), la foto sarà buia nera o bianca come la neve. Usala solo se hai tempo di ragionare (es. scatti in studio con luci artificiali, o per fotografare la Luna).</li>
+      </ul>
+    </div>
+
+    <h3 id="esposimetro" style="margin-top:40px; color:var(--teal);">2. Dire alla macchina *dove* guardare la luce</h3>
+    <p>Perché a volte fai una foto a una persona controluce e lei viene nera come un'ombra? Perché la macchina, di base, fa una "media" della luce su tutto lo schermo. Vedendo tanto cielo bianco accecante, scurisce tutto! Ecco come risolvere col <strong>Metering (Misurazione)</strong>.</p>
+    
+    <div class="card amber">
+      <span class="badge inter">Cambiare la misurazione (Tasto Q.MENU)</span>
+      <p class="desc">Premi `Q.MENU` (sul dorso) e vai sull'icona con un "occhietto" in un rettangolo.</p>
+      <ul class="dots">
+        <li><strong>Misurazione Multipla (Icona con la griglia):</strong> Guarda l'intero schermo. Ottima per paesaggi.</li>
+        <li><strong>Ponderata Centrale (Cerchio grande):</strong> Ignora gli angoli e guarda solo cosa c'è al centro. Utile nei ritratti standard.</li>
+        <li><strong>Misurazione SPOT (Puntino piccolo):</strong> <em>La Salvezza.</em> Selezionandola, la fotocamera ignorerà l'universo intero e misurerà la luce in un microscopico punto al centro. Se lo punti sul volto dell'amico controsole, il cielo esploderà di bianco dietro di lui, ma il suo viso sarà luminoso, colorato e perfetto!</li>
+      </ul>
+    </div>
+
+    <h3 id="shutter" style="margin-top:40px; color:var(--crimson);">3. L'Otturatore Silenzioso vs Meccanico</h3>
+    <p>La G9 ha due modi per scattare una foto. Uno fa "Clack", l'altro è completamente muto (Modalità Silenziosa).</p>
+    
+    <div class="dd">
+      <div class="col do">
+        <h5>✅ Quando essere silenziosi (Otturatore Elettronico)</h5>
+        <p>In chiese, musei, o se vuoi fotografare un animale pauroso, entra nel menu e attiva lo <strong>Scatto Silenzioso</strong>. Il sensore della G9 farà una "scansione digitale" della luce senza muovere nessun pezzo di metallo interno. Oltretutto ti sbloccherà raffiche folli fino a 60 foto al secondo (SH1)!</p>
+      </div>
+      <div class="col dont">
+        <h5>⛔ Quando disattivarlo ASSOLUTAMENTE</h5>
+        <p>Se fotografi in casa con luci a LED del supermercato, la foto silenziosa verrà con grosse bande orizzontali nere (perché i LED sfarfallano invisibilmente). Oppure, se fai una foto a una mazza da golf in rapido movimento, sembrerà piegata come un grissino per colpa della scansione ("Rolling Shutter"). In questi casi, spegni il silenzioso e fai rumore col "Clack" meccanico!</p>
+      </div>
+    </div>
+
+    <h3 id="flash" style="margin-top:40px; color:var(--gold);">4. Magia col Flash: TTL e High-Speed Sync (HSS)</h3>
+    <p>Usare il flash di giorno sembra stupido, ma è il segreto dei professionisti per eliminare le ombre dure del sole sul viso!</p>
+    
+    <div class="card neo">
+      <span class="badge pro">Le tre sigle dei Flash (Rese facili)</span>
+      <ul class="dots">
+        <li><strong>TTL (Through The Lens):</strong> Significa "Automatico". Compra un flash (es. Godox) compatibile con Panasonic/Olympus e mettilo in TTL. Fa un mini-lampo invisibile prima dello scatto, la G9 calcola la luce e gli dice "Spara potenza a livello 4!". Tu non devi fare nessuna calcolo.</li>
+        <li><strong>HSS (High-Speed Sync):</strong> Normalmente le fotocamere non possono usare il flash se il tempo di scatto è più veloce di 1/250s (se ci provi, la foto viene a metà nera). L'HSS è una funzione magica del flash che gli permette di "pulsare" in frazioni di millisecondo. Grazie all'HSS puoi scattare un ritratto al sole a 1/8000s col flash, avendo lo sfondo sfocato e la faccia perfetta.</li>
+        <li><strong>Seconda Tendina (Rear Curtain Sync):</strong> Si imposta nel menu flash della G9. Si usa di notte per fotografare le macchine. Fa in modo che il flash spari *alla fine* del tempo di scatto (es. 2 secondi lunghi) invece che all'inizio. Il risultato? L'auto sembrerà avere le scie di luce che la *seguono* dietro, dando il senso del movimento in avanti!</li>
+      </ul>
+    </div>
+
+    <h3 id="astro" style="margin-top:40px; color:var(--teal);">5. Astrofotografia per Principianti</h3>
+    <p>Fotografare le stelle richiede solitamente occhi bionici per mettere a fuoco nel buio più totale. Ma la G9 ha il mantello da supereroe.</p>
+
+    <div class="card amber">
+      <span class="badge inter">Starlight AF e Modalità Notte</span>
+      <ol class="steps">
+        <li>Monta un obiettivo luminoso (f/1.4 o f/1.7) e metti la G9 su un cavalletto.</li>
+        <li>Fai attenzione che l'interruttore del fuoco dietro sia su <strong>AFS</strong> (Automatico Singolo) e *non* in Manuale.</li>
+        <li>Punta il quadratino dell'Autofocus verso una stella molto luminosa nel cielo buio e premi il bottone a metà.</li>
+        <li>Sullo schermo apparirà la scritta magica <strong>"Starlight AF"</strong>: la G9 guarderà i pixel con una microscopica intelligenza artificiale per le stelle e *metterà a fuoco le stelle in automatico*! (Nessun'altra marca lo faceva ai tempi).</li>
+        <li><strong>La Modalità Notturna:</strong> Se stai lavorando nel buio del bosco per un'ora, lo schermo luminoso LCD distruggerà la capacità dei tuoi occhi di vedere le stelle nel cielo. Vai in <span class="km">MENU (Ingranaggio) ➔ Monitor/Display ➔ Modalità Notte</span>. Lo schermo diventerà tutto di un fantastico rosso scuro stile sottomarino: potrai leggere le opzioni senza rovinarti la vista!</li>
+      </ol>
+    </div>
+
+    <h3 id="algoritmi" style="margin-top:40px; color:var(--crimson);">6. iDynamic e Colori (Cosa sono?)</h3>
+    <p>Se sfogli il menu fotografico, troverai voci esoteriche come "Risoluz. I.Intelligente" e "Gamma D. I.Intelligente (iDynamic)". Ecco cosa fanno.</p>
+    
+    <div class="dd">
+      <div class="col do">
+        <h5>✅ Quando usarli (Se scatti solo in JPEG)</h5>
+        <p>Se non vuoi passare mai dal computer e vuoi le foto pronte sul cellulare, attiva <strong>iDynamic su Auto</strong>. La fotocamera riconoscerà automaticamente i cieli bruciati o le ombre troppo scure sotto gli alberi e, prima di salvare il JPEG, le "stirerà" per renderle visibili (tipo un HDR istantaneo).</p>
+      </div>
+      <div class="col dont">
+        <h5>⛔ Quando spegnerli ASSOLUTAMENTE (Se scatti in RAW)</h5>
+        <p>Se hai impostato la macchina per salvare in formato RAW (per lavorarlo in Lightroom o simili), questi algoritmi intelligenti sono il male assoluto. Perché? Perché influenzano l'anteprima dello schermo facendoti credere che l'esposizione sia perfetta, ma poi il RAW puro (che non contiene algoritmi) risulterà sballato. Disattivali se sei un Pro!</p>
+      </div>
+    </div>
+
+    <h3 id="troubleshooting" style="margin-top:40px; color:var(--ink);">7. Troubleshooting Esteso (Risoluzione Problemi Frequenti)</h3>
+    <div class="dd">
+      <div class="col dont">
+        <h5>❓ 1. La foto notturna è sfocata e sgranata (mossa), eppure ho messo ISO alti!</h5>
+        <p><strong>Causa:</strong> Sei in modalità A o P (Automatismi) e la fotocamera non è su un treppiede. L'esposimetro ha deciso che per avere abbastanza luce il tempo di scatto deve durare 1 intero secondo. Le tue mani, ovviamente, non possono restare immobili per 1 secondo.</p>
+        <p><strong>Soluzione:</strong> La regola per scattare a mano libera di notte è: 1) apri il diaframma al numero più basso (f/1.8), 2) vai in modalità S e forza un tempo minimo di almeno 1/30s (grazie allo stabilizzatore pazzesco della G9). Lascia che gli ISO salgano, meglio una foto sgranata (rumore) che una foto completamente "strisciata" e mossa.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 2. Nel menu "Bracket", l'opzione "HDR" o "Focus Stacking" non è cliccabile!</h5>
+        <p><strong>Causa:</strong> Stai cercando di usare il Bracketing mentre sei in Modalità RAW, oppure stai usando un obiettivo manuale "analogico" che non ha contatti elettronici.</p>
+        <p><strong>Soluzione:</strong> Alcune magie computazionali della G9 (come unire gli HDR in automatico) funzionano *solo* salvando in formato JPG (Qualità Reg). Inoltre, il Focus Stacking richiede che la macchina possa comunicare col motorino dell'obiettivo: assicurati di usare una lente moderna nativa (Panasonic o Olympus).</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 3. Ho comprato un flash esterno (es. Godox), l'ho acceso, ma quando scatto non fa luce.</h5>
+        <p><strong>Causa:</strong> Ci sono due cause tipiche. A) Hai lasciato lo "Scatto Silenzioso" attivo nel Menu, bloccando tutti i flash per default. B) Il Flash non è spinto fino in fondo sulla slitta argentata della G9 (gli "spillini" dorati sotto il flash non toccano bene i contatti della macchina).</p>
+        <p><strong>Soluzione:</strong> Disabilita lo scatto silenzioso (usa l'Otturatore Meccanico standard "MSHTR"). Rimuovi il flash, inseriscilo nella slitta spingendolo bene fino in fondo a fine corsa, e stringi la rondella di sicurezza.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 4. Sto facendo una macro a una formica. Metto a fuoco gli occhi, scatto, ma nella foto è a fuoco il sedere!</h5>
+        <p><strong>Causa:</strong> Questo si chiama "Focus Shift". A distanze ravvicinatissime (Macro), muovere la testa in avanti o indietro di un solo millimetro dopo aver agganciato l'autofocus distrugge la tua foto. Un'altra causa è un difetto della lente noto come "Front/Back Focus".</p>
+        <p><strong>Soluzione:</strong> Passa in Manual Focus (MF). Attiva il Focus Peaking e ingrandisci l'immagine sullo schermo. Spostati fisicamente tu avanti e indietro (oscillando) finché gli occhi della formica non si colorano di rosso sul display, poi scatta immediatamente in raffica.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 5. Ho scattato una foto verticale. Quando la passo sul PC è ruotata storta e la devo girare a mano!</h5>
+        <p><strong>Causa:</strong> Hai disattivato il sensore di gravità nel menu, o stavi puntando la fotocamera dritta in basso/alto, confondendo il sensore.</p>
+        <p><strong>Soluzione:</strong> Vai nel <span class="km">MENU ➔ Chiave Inglese ➔ Info Direz. Fotocamera (Rotate Disp.)</span> e mettilo su ON. La fotocamera scriverà un minuscolo pezzo di codice (metadata) nel file JPG/RAW dicendo al tuo Windows/Mac "Ehi, girami di 90 gradi appena mi apri!".</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<button id="themeBtn" aria-label="Cambia tema">
+  <div class="swatch"></div>
+  <span class="lbl-name">Cinema</span>
+</button>
+
+</body>
+</html>

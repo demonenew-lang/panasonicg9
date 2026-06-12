@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Avanzato - Panasonic G9 Ultimate Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/script.js" defer></script>
+<style>
+  .toc { background: var(--bg-card); padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid var(--border); }
+  .toc h4 { margin-top: 0; color: var,(--gold); }
+  .toc ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: var(--text); text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="global-nav">
+  <div class="global-nav-inner">
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="01-introduzione.html">📸 Introduzione</a>
+    <a href="02-fotografia.html">📷 Fotografia</a>
+    <a href="03-video-base.html">🎬 Video Base</a>
+    <a href="04-video-avanzato.html" class="active">🎥 Video Avanzato</a>
+    <a href="05-movimento-fuoco.html">🏃 Movimento e Fuoco</a>
+    <a href="06-funzioni-speciali.html">✨ Funzioni Speciali</a>
+    <a href="07-intelligenza-artificiale.html">🤖 AI & Autofocus</a>
+    <a href="08-cinema-masterclass.html">🍿 Cinema Masterclass</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="videoavanzato" class="page-section">
+    <div class="sec-head"><span class="sec-num">04</span>
+      <div><h2>Video Avanzato (Guida Estesa)</h2><span class="sub">10-Bit vs 8-Bit, HLG per HDR, Anamorfico e Master Pedestal</span></div>
+    </div>
+
+    <p class="lead">Entriamo nel territorio dove la G9 smette di essere una fotocamera e si trasforma in una macchina da presa di Hollywood. Non spaventarti per le sigle: ti spiegherò i concetti più difficili dell'industria video in modo semplice, come se fossimo al bar.</p>
+
+    <div class="toc">
+      <h4>Indice del Capitolo</h4>
+      <ul>
+        <li><a href="#bits">1. La Spugna dei Colori: 10-Bit vs 8-Bit (4:2:2 vs 4:2:0)</a></li>
+        <li><a href="#codec">2. Codec: LongGOP (Pesante per PC) vs ALL-Intra (Perfetto)</a></li>
+        <li><a href="#hlg">3. Cos'è HLG (Hybrid Log Gamma)? HDR reso semplice!</a></li>
+        <li><a href="#anamorfico">4. Riprendere in Anamorfico: "Schiacciare" per avere le bande nere</a></li>
+        <li><a href="#pedestal">5. Master Pedestal e Knee (Controlli da Telecamera TV)</a></li>
+        <li><a href="#vlog">6. V-Log L: Vedere a colori con le LUT in Macchina</a></li>
+        <li><a href="#troubleshooting">7. Troubleshooting (Risoluzione Problemi Estesa)</a></li>
+      </ul>
+    </div>
+
+    <h3 id="bits" style="margin-top:40px; color:var(--amber);">1. La Spugna dei Colori: 10-Bit vs 8-Bit (e il 4:2:2)</h3>
+    <p>Le videocamere "normali" salvano spazio sulla memoria buttando via miliardi di informazioni cromatiche. Noi non vogliamo farlo.</p>
+
+    <div class="card neo">
+      <span class="badge inter">Bit-Depth (La quantità di colori)</span>
+      <p class="desc">Pensa all'immagine come a una scatola di pennarelli.</p>
+      <ul class="dots">
+        <li><strong>L'8-Bit</strong> (i video delle vacanze o dei vecchi cellulari) è una scatola da 16 milioni di pennarelli. Sembrano tantissimi, vero? Sbagliato! Se fotografi un cielo azzurro al tramonto, noterai delle orribili "striature" marcate tra il blu scuro e il blu chiaro, simili a dei cerchi concentrici ("Color Banding"). I colori si staccano nettamente invece di sfumare.</li>
+        <li><strong>Il 10-Bit</strong> (Il Cinema) è una scatola da <strong>Oltre 1 Miliardo di pennarelli</strong>! Le transizioni e le sfumature di colore (specie sui volti umani) diventano cremose, perfette, reali come l'occhio umano. La G9 sblocca questa magia interna se selezioni nel menu le opzioni di registrazione in formato `MOV`.</li>
+      </ul>
+      <p class="desc" style="margin-top:15px;"><strong>Il Campionamento (4:2:0 vs 4:2:2):</strong><br>La fotocamera inganna l'occhio umano. Poiché siamo sensibili solo alla luminosità e non al colore, una macchina in "4:2:0" butta via metà del colore dei pixel dell'immagine per risparmiare spazio, lasciando solo la luminosità. Ma se al computer tenti di selezionare una maglietta blu per farla diventare rossa, i bordi risulteranno grigi o seghettati! Il formato <strong>4:2:2</strong> conserva il colore di tutti i pixel, raddoppiando le informazioni per il color grading o il Green Screen (quando vuoi "bucare" il video dietro di te).</p>
+    </div>
+
+    <h3 id="codec" style="margin-top:40px; color:var(--teal);">2. Codec: LongGOP (Pesante per PC) vs ALL-Intra (Perfetto)</h3>
+    <p>Hai un PC molto potente ma quando metti il video in DaVinci Resolve o Premiere, questo lagga terribilmente e scatta? La colpa non è del tuo PC, ma del "Metodo di Compressione" (Codec) che hai usato sulla G9.</p>
+
+    <div class="card crimson">
+      <span class="badge pro">Compressione dei fotogrammi</span>
+      <table class="tbl">
+        <thead><tr><th>Tipo</th><th>Come funziona (Spiegazione Facile)</th><th>Spazio SD e Lavoro PC</th></tr></thead>
+        <tbody>
+          <tr><td><strong>LongGOP</strong><br>(es. 150 Mbps)</td><td>"Matematica pura". La fotocamera scatta una foto ogni tanto (Keyframe). Per tutti i fotogrammi di mezzo in cui la persona si muove, la macchina si rifiuta di scattare le foto e semplicemente <em>indovina i pixel con dei calcoli!</em></td><td>I file sono piccoli, risparmi memorie SD. MA il tuo povero computer, quando andrai a montarli, dovrà *ricalcolarsi tutta la matematica in tempo reale* per creare il video e impazzirà, scattando!</td></tr>
+          <tr><td><strong>ALL-Intra</strong><br>(es. 400 Mbps)</td><td><strong>"Fotografie vere".</strong> Non c'è trucco e non c'è inganno. La G9 scatta 25 fotografie pure, singole e piene, e le incolla assieme in un secondo. Nessuna stima, nessun calcolo.</td><td>I file sono colossali (Riempiono una SD da 64GB in mezz'ora!). Ti serviranno SD costosissime V90. MA il tuo computer volerà, perché leggerà foto dopo foto senza dover fare nessuno sforzo per decodificarle!</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="hlg" style="margin-top:40px; color:var(--gold);">3. Cos'è HLG (Hybrid Log Gamma)? HDR reso semplice!</h3>
+    <p>Tutti impazziscono per girare in "V-Log" logaritmico, ma dimenticano un profilo colore incredibile aggiunto da Panasonic chiamato <strong>HLG</strong> (Hybrid Log Gamma). Come suggerisce il nome (Creato dalla BBC inglese), è un profilo per l'HDR (High Dynamic Range).</p>
+
+    <div class="dd">
+      <div class="col do">
+        <h5>✅ Perché usare l'HLG (In sintesi)</h5>
+        <p>Hai mai visto quei video su Youtube che, se guardati dal cellulare moderno o dalle TV Oled, alzano automaticamente la luminosità del tuo schermo al massimo, rendendo il sole così accecante da sembrare vero? Quello è l'HDR.
+        <br>L'HLG fa proprio questo: cattura ombre scurissime e bianchi fortissimi. Il bello dell'HLG rispetto al V-Log è che è "Cotto e mangiato". Se non sai colorare l'immagine con DaVinci Resolve e non hai tempo, seleziona HLG nel menu <em>Stile Foto</em>, metti il file su Premiere e fagli fare un export "Rec.2020 HDR": caricalo, e avrai un video esplosivo senza nessuno sforzo di color grading avanzato!</p>
+      </div>
+    </div>
+
+    <h3 id="anamorfico" style="margin-top:40px; color:var(--ink);">4. Riprendere in Anamorfico (Le famose Bande Nere)</h3>
+    <p>Come fanno a Hollywood ad avere video "larghissimi" e ovali? Tagliano un video normale mettendo due bande nere grosse sopra e sotto per finta? NO! Usano le *Lenti Anamorfiche*, obiettivi magici col vetro ovale che "spremono" molta più immagine ai lati dentro un sensore piccolissimo. (E poi fanno le famose strisce blu luminose come in Star Trek o nei film di J.J. Abrams!).</p>
+    
+    <div class="card neo">
+      <span class="badge inter">Il Desqueeze Anamorfico in Macchina</span>
+      <p class="desc">La G9 è una delle pochissime macchine al mondo a supportare queste costosissime lenti nativamente.</p>
+      <ul class="dots">
+        <li><strong>Il formato alto:</strong> Quando attacchi una Lente Anamorfica (es. Sirui), vai in <span class="km">MENU Video ➔ Formato Registrazione ➔ 6K / 4K Anamorfico (4:3)</span>. Il sensore non leggerà più solo un rettangolo schiacciato, ma leggerà in "altezza" tutti i megapixel. L'immagine però, sullo schermo, ti sembrerà orribilmente compressa, con la gente alta e magrissima!</li>
+        <li><strong>La soluzione (Desqueeze):</strong> Vai in <span class="km">MENU Ingranaggio ➔ Monitor/Display ➔ Disp.Desqueeze Anamorfico</span>. Se la tua lente è un x1.33 o x2.0, selezionalo. BAM! Lo schermo della G9 istantaneamente allargherà l'immagine per fartela vedere proporzionata e larghissima (aggiungendo lei stessa delle finte bande nere temporanee in alto e in basso per farti capire cosa inquadri). Un set cinematografico nelle tue mani.</li>
+      </ul>
+    </div>
+
+    <h3 id="pedestal" style="margin-top:40px; color:var(--teal);">5. Master Pedestal e Knee (Controlli da TV)</h3>
+    <p>Ti capiterà di vedere, nell'ultima pagina del menu Video, le voci "Livello Master Pedestal" e "Luminosità/Ombre". Derivano dalle super-videocamere da telegiornale. Cosa fanno?</p>
+
+    <div class="card amber">
+      <span class="badge pro">La finezza delle ombre</span>
+      <ul class="dots">
+        <li><strong>Master Pedestal Level (Pedestallo Base):</strong> Stabilisce "quanto nero è il tuo nero" prima di registrare. Se lo metti a +15, i neri non saranno mai neri assoluti, ma si alzeranno diventando di un grigio lattiginoso (look vintage hipster). Se lo metti a -15, i neri diventeranno profondi e oscuri ("Crushed Blacks"). <em>Consiglio: lascialo a 0 se devi girare normalmente!</em></li>
+        <li><strong>Curva del Ginocchio (Knee):</strong> Questa è una protezione. Quando il sole sta per bruciare e la zona bianca dell'immagine sta per "clippare" distruggendosi, la curva di ginocchio interviene curvando violentemente i pixel prima del 100%, sfumando l'esplosione per rendere la nuvola visibile e morbida.</li>
+      </ul>
+    </div>
+
+    <h3 id="troubleshooting" style="margin-top:40px; color:var(--ink);">6. Troubleshooting Esteso (Risoluzione Problemi Frequenti)</h3>
+    <div class="dd">
+      <div class="col dont">
+        <h5>❓ 1. Attacco un Atomos Ninja V all'uscita HDMI grande, ma vedo solo a 8-Bit!</h5>
+        <p><strong>Causa:</strong> Non hai configurato l'uscita HDMI dal menu della macchina, lasciandola su "Auto" (che predilige la sicurezza mandando vecchi segnali a vecchie TV).</p>
+        <p><strong>Soluzione:</strong> La G9 ha una HDMI di tipo A "Grande" formidabile (no micro-hdmi che si rompono!). Dal Menu <span class="km">Uscita HDMI Esterna</span> seleziona manualmente e forzatamente <span class="km">Uscita Info Rec. ➔ 4K/60p ➔ 4:2:2 10Bit</span>. Ora il segnale è sboccato e l'Atomos lo registrerà intatto!</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 2. Quando uso "ALL-Intra" 400Mbps, il video si stoppa e dice "Card Speed too slow"!</h5>
+        <p><strong>Causa:</strong> Stai cercando di mettere l'acqua di una vasca intera in una bottiglietta piccola. Una scheda SD di Classe 10 o U3 da 40 euro non ce la fa minimamente a gestire 400 Megabit al secondo (si brucerebbe).</p>
+        <p><strong>Soluzione:</strong> 400 Megabits corrispondono a circa 50 MegaBytes *al secondo* scritti fisicamente sulla scheda. Devi per forza comprare Schede SD marchiate "V90" (Video Class 90, con i contatti in oro UHS-II a doppia riga dietro), che costano sui 100/150 euro l'una. Non c'è scampo per i veri professionisti.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 3. Ho attivato l'HLG (Hybrid Log Gamma), e sullo schermo della G9 fa tutto schifo, è scurissimo!</h5>
+        <p><strong>Causa:</strong> L'HLG contiene informazioni per TV HDR fortissime (1000 nits di potenza), ma lo schermetto della G9 è SDR (Standard, molto debole). Lo schermo non riesce a farti vedere i veri colori che la macchina sta registrando sulla scheda!</p>
+        <p><strong>Soluzione:</strong> Identica al V-LogL. Vai in <span class="km">MENU ➔ Monitor/Display ➔ Assistente Visualizzazione HLG</span>. Scegli MODE1 per schiarire le ombre e MODE2 per proteggere i dettagli dei bianchi. Questo trucchetto "strizzerà" l'immagine sul piccolo monitor per farti vedere la scena illuminata normalmente, mentre sulla SD salverà la versione folle per i supertelevisori!</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 4. Durante la registrazione video, lo schermo improvvisamente diventa metà bianco/metà blu con delle nuvole rosse che pulsano ovunque! Aiuto!</h5>
+        <p><strong>Causa:</strong> Hai cliccato per sbaglio il bottone che attiva lo <strong>"Zebra Pattern"</strong> e hai preso un colpo per niente. Le zebre (o nuvole colorate nel firmware avanzato) sono l'assistente per avvisarti dove l'immagine è bruciata!</p>
+        <p><strong>Soluzione:</strong> Le bande "Zebrate" a strisce bianche e nere ti dicono (se impostate al 100%) "Questa zona del muro è distrutta e bianca, abbassa l'esposizione". Se non le vuoi vedere, cerca Zebra nel menu Display e mettile su OFF. Ma per un professionista, abituarsi a lavorare tra le zebre è obbligatorio, perché ti avvisano prima che accada il disastro!</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 5. DaVinci Resolve su PC (non-Mac) freeza e sfarfalla se tento di aprire file HEVC/H.265 10-Bit della G9!</h5>
+        <p><strong>Causa:</strong> Stai usando DaVinci Resolve GRATIS (La versione Free). Su Windows, la versione gratuita di DaVinci blocca in modo intenzionale la decodifica dei file a 10-bit H.265 per spingerti a comprare la licenza da 300 euro ("DaVinci Studio"). Su Mac (M1/M2) questo blocco è bypassato dalle librerie hardware di Apple e spesso funziona anche sulla versione free.</p>
+        <p><strong>Soluzione Veloce:</strong> Per il PC, converti i file in MOV tramite il programma Handbrake prima di importarli in DaVinci, oppure (la soluzione migliore in assoluto), metti mano al portafogli e compra DaVinci Resolve Studio per sempre: la tua G9 lo merita.</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<button id="themeBtn" aria-label="Cambia tema">
+  <div class="swatch"></div>
+  <span class="lbl-name">Cinema</span>
+</button>
+
+</body>
+</html>

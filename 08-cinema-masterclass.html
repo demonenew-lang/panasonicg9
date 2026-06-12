@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinema Masterclass - Panasonic G9 Ultimate Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/script.js" defer></script>
+<style>
+  .toc { background: var(--bg-card); padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid var(--border); }
+  .toc h4 { margin-top: 0; color: var(--gold); }
+  .toc ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: var(--text); text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="global-nav">
+  <div class="global-nav-inner">
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="01-introduzione.html">📸 Introduzione</a>
+    <a href="02-fotografia.html">📷 Fotografia</a>
+    <a href="03-video-base.html">🎬 Video Base</a>
+    <a href="04-video-avanzato.html">🎥 Video Avanzato</a>
+    <a href="05-movimento-fuoco.html">🏃 Movimento e Fuoco</a>
+    <a href="06-funzioni-speciali.html">✨ Funzioni Speciali</a>
+    <a href="07-intelligenza-artificiale.html">🤖 AI & Autofocus</a>
+    <a href="08-cinema-masterclass.html" class="active">🍿 Cinema Masterclass</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="masterclass" class="page-section">
+    <div class="sec-head"><span class="sec-num">08</span>
+      <div><h2>Masterclass Cinema (Guida Estesa)</h2><span class="sub">Color Grading Facile, Workflow Proxy e Nodi in DaVinci</span></div>
+    </div>
+
+    <p class="lead">Siamo arrivati alla vetta della montagna. Hai girato file perfetti, pesantissimi e "grigi" usando il profilo V-Log L. Ora ti insegnerò a trasformarli in pellicole hollywoodiane spettacolari senza dover essere un ingegnere informatico, usando il software gratuito più potente del mondo: DaVinci Resolve.</p>
+
+    <div class="toc">
+      <h4>Indice del Capitolo</h4>
+      <ul>
+        <li><a href="#proxy">1. Il Workflow "Proxy": Come montare il 4K anche su un PC vecchio</a></li>
+        <li><a href="#davinci">2. DaVinci Resolve spiegato facile (Cosa sono i Nodi)</a></li>
+        <li><a href="#cst">3. Il Miracolo: Color Space Transform (CST) e Tone Mapping</a></li>
+        <li><a href="#curve">4. Magie con le Curve Secondarie (Hue vs Hue / Hue vs Sat)</a></li>
+        <li><a href="#pelle">5. Proteggere il colore della pelle (Skin Tones Qualifier)</a></li>
+        <li><a href="#export">6. Esportazione Definitiva: Setta YouTube al Massimo</a></li>
+        <li><a href="#troubleshooting">7. Troubleshooting (Risoluzione Problemi Estesa)</a></li>
+      </ul>
+    </div>
+
+    <h3 id="proxy" style="margin-top:40px; color:var(--amber);">1. Il Workflow "Proxy": Come montare il 4K anche su PC vecchi</h3>
+    <p>Hai seguito la guida e hai registrato in 4K 10-Bit a 150 Mbps (HEVC LongGOP). Metti la scheda SD nel tuo portatile Windows. Apri il video e... tutto va a scatti. Il computer si blocca, esplode di ventole e si rifiuta di riprodurre il video. Niente panico! <strong>Non devi buttare il computer, devi usare i Proxy.</strong></p>
+
+    <div class="card neo">
+      <span class="badge inter">Generare file di "Brutta Copia"</span>
+      <p class="desc">Un "Proxy" è letteralmente un clone a bassa risoluzione del tuo file gigante, che il computer può leggere bendato e con una mano dietro la schiena.</p>
+      <ol class="steps">
+        <li>Metti i tuoi file pesanti originali dentro DaVinci Resolve (nel Media Pool in alto a sinistra).</li>
+        <li>Selezionali tutti (trascinando il mouse). Clicca col tasto destro e scegli <strong>"Generate Proxy Media"</strong>.</li>
+        <li>Vai a farti un caffè (ci vorrà un po' di tempo perché il computer sta creando migliaia di piccoli file segreti).</li>
+        <li>Finito! Ora metti i video sulla Timeline in basso. Quando schiacci "Play", DaVinci in background starà leggendo le brutte copie sgranate (i Proxy), facendoti scorrere il video fluidissimo a 60 fps e permettendoti di fare tutti i tagli rapidissimi che vuoi senza mai laggare.</li>
+        <li><strong>E per il colore?</strong> Nessun problema. Al momento dell'esportazione finale (Render), DaVinci farà la magia: ignorerà i file brutti e userà i super-file giganti a 4K 10-bit originali della G9 salvando un capolavoro!</li>
+      </ol>
+    </div>
+
+    <h3 id="davinci" style="margin-top:40px; color:var(--teal);">2. DaVinci Resolve spiegato facile (Cosa sono i Nodi)</h3>
+    <p>In Premiere o in Photoshop, applichi gli effetti ai "Livelli" (uno sopra l'altro come un panino). In DaVinci si ragiona come degli idraulici: <strong>usiamo i Tubi dell'Acqua (I Nodi).</strong></p>
+
+    <ul class="dots">
+      <li>Premi <strong>Alt+S</strong> (o Option+S su Mac) per aggiungere un Nodo vuoto. Appariranno dei quadratini uniti da un filo verde.</li>
+      <li>Il file grezzo della G9 "scorre" da sinistra ed entra nel Nodo 1 (es. un filtro per il contrasto). Poi esce e l'immagine "trattata" va nel Nodo 2 (es. un cambio colore). Esce, va nel Nodo 3 e così via fino allo schermo finale a destra.</li>
+      <li><strong>Perché è meglio dei Livelli?</strong> Perché se ti penti di aver messo troppo verde nel Nodo 2, puoi semplicemente "spegnere" o cancellare quel singolo tubo senza rompere tutta la catena e senza rovinare l'immagine originale! È pulitissimo e non distruttivo.</li>
+    </ul>
+
+    <h3 id="cst" style="margin-top:40px; color:var(--crimson);">3. Il Miracolo: Color Space Transform (CST)</h3>
+    <p>Non usare le "LUT" (I filtri stile Instagram) prese a caso da internet sul V-Log della G9. Spesso distruggono le nuvole facendole clippare e sfasano il rosso rendendolo marcio. Usa la matematica vera.</p>
+    
+    <div class="card amber">
+      <span class="badge pro">Trasformare lo spazio colore (Nodo Base)</span>
+      <p class="desc">Aggiungi un Nodo a metà catena. Vai negli "Effetti" e trascina "Color Space Transform" su quel Nodo.</p>
+      <ul class="dots">
+        <li><strong>Input:</strong> Dici al computer "Guarda che ti sto dando un file Panasonic". Metti <em>Input Color Space</em> su "Panasonic V-Gamut" e <em>Input Gamma</em> su "Panasonic V-Log".</li>
+        <li><strong>Output:</strong> Dici al computer "Trasformalo nei colori veri della TV". Metti <em>Output Color Space</em> su "Rec.709" e <em>Output Gamma</em> su "Gamma 2.4" o "Rec.709-A" (se usi schermi Mac).</li>
+        <li><strong>La vera magia (Tone Mapping):</strong> Se scendi in basso in quel pannello, c'è la magica voce "Tone Mapping". Se la attivi (mettendola su DaVinci), il software prenderà il super-bianco del cielo che stavi perdendo e lo <em>comprimerà morbosamente dentro la tua TV</em> senza fargli perdere neanche una sfumatura! I tuoi cieli torneranno carichi e spessi. Nessuna LUT gratuita scaricata da internet fa questo!</li>
+      </ul>
+    </div>
+
+    <h3 id="curve" style="margin-top:40px; color:var(--ink);">4. Magie con le Curve Secondarie (Hue vs Hue / Hue vs Sat)</h3>
+    <p>Hai girato una scena pazzesca col modello. Ma accidenti, ha una maglietta Giallo Evidenziatore che distrae tantissimo! In Premiere impazziresti. In DaVinci ci metti 2 secondi netti.</p>
+    
+    <div class="dd">
+      <div class="col do">
+        <h5>✅ Lo strumento Curve HSL</h5>
+        <p>Sotto alle ruote del colore, c'è l'icona con dei tracciati e dei pallini (Curve). Cliccala e cerca i tab <strong>Hue vs Sat</strong> (Tonalità rispetto alla Saturazione) e <strong>Hue vs Hue</strong> (Tonalità rispetto alla Tonalità).</p>
+        <p><strong>Per scolorire la maglia Gialla (Hue vs Sat):</strong> Prendi la cannuccia (Contagocce) e clicca sulla maglia. Sulla riga appariranno tre puntini centrati sul colore Giallo. Prendi il puntino centrale e... tiralo giù verso il basso! Vedrai *SOLO* la maglia perdere colore e diventare di un bel grigio tenue o giallo spento, mentre tutto il bosco e la faccia della persona rimarranno perfettamente colorati e brillanti!</p>
+        <p><strong>Per cambiare colore (Hue vs Hue):</strong> Vai nel parco, l'erba è Verde prato estivo, tu vuoi fare un film drammatico Autunnale. Tira il puntino verde verso l'alto sulla riga "Hue vs Hue". Tutta l'erba del parco si trasformerà magicamente in Arancione / Rosso mattone, in tempo reale, senza usare pennelli noiosi!</p>
+      </div>
+    </div>
+
+    <h3 id="pelle" style="margin-top:40px; color:var(--gold);">5. Proteggere la pelle (Skin Tones Qualifier)</h3>
+    <p>Regola numero 1 di Hollywood: puoi colorare il film di azzurro "Matrix" o di Giallo Acido "Breaking Bad"... ma la faccia degli attori <strong>DEVE</strong> sempre restare del colore naturale umano rosa/arancio (Skin Tones). Se tocchi la pelle, il pubblico capirà subito che il film è fasullo.</p>
+
+    <div class="card teal">
+      <span class="badge inter">Salvare il volto umano</span>
+      <ol class="steps">
+        <li>Mettiti nell'ultimo Nodo a destra di tutti. Clicca sull'icona col "Contagocce a siringa" in basso (Qualifier).</li>
+        <li>Tocca e struscia il mouse sulla faccia dell'attore nel video. </li>
+        <li>Clicca sulla "Bacchetta Magica" grigia piccolina in alto a sinistra del monitor video: BAM! Tutto lo schermo diventerà grigio tranne il naso, gli occhi e le guance della persona. Hai "Isolato" (Scontornato) la pelle in un millisecondo!</li>
+        <li>Inverti il nodo! Vai nel pannello "Key" (la chiavetta) in basso e schiaccia l'iconcina per Invertire la maschera.</li>
+        <li>Ora puoi scatenarti! Usa le rotelle primarie (Offset) per inondare il video di colore Verde Acido... e guarderai a bocca aperta l'intero sfondo diventare Verde, tranne la modella, che fluttuerà bellissima con la sua naturale pelle perfetta come se fosse stata illuminata magicamente da un faretto in studio!</li>
+      </ol>
+    </div>
+
+    <h3 id="export" style="margin-top:40px; color:var(--amber);">6. Esportazione Definitiva: Setta YouTube al Massimo</h3>
+    <p>Hai faticato ore a ritoccare i colori, ma quando carichi il video online fa pietà, è tutto sgranato. Youtube infatti comprime in modo brutale i file di piccole dimensioni. Combattiamolo.</p>
+
+    <div class="card crimson">
+      <span class="badge all">Trucchi Finali di Render (Pannello a Razzo)</span>
+      <ul class="dots">
+        <li>Non cliccare mai "Quick Export per Youtube". È robaccia automatica compressa.</li>
+        <li>Seleziona <strong>Custom Export</strong>. Imposta Formato: MP4, Codec: <strong>H.265</strong> (se hai PC potente) o H.264.</li>
+        <li><strong>Il trucco della Qualità (Bitrate):</strong> YouTube (se in 4K) riproduce video massimo a circa 30 o 40 Mbps. Se glieli mandi tu già compressi a 30, YouTube li comprimerà *di nuovo*, facendoli sgranare malissimo (specie i movimenti nei boschi e gli spruzzi d'acqua). </li>
+        <li>Nel campo Qualità, togli "Automatic" e metti <strong>"Restrict To: 80.000 Kb/s"</strong>. Dagli un file mastodontico, grasso e gigantesco! Youtube ovviamente lo taglierà a sua volta, ma partendo da un "file enorme e perfetto", il risultato finale che gli utenti guarderanno online sarà del 300% superiore al normale video medio!</li>
+      </ul>
+    </div>
+
+    <h3 id="troubleshooting" style="margin-top:40px; color:var(--ink);">7. Troubleshooting Esteso (Risoluzione Problemi Frequenti)</h3>
+    <div class="dd">
+      <div class="col dont">
+        <h5>❓ 1. Nel Waveform (il grafico ad onda) o nell'Istogramma di Resolve, le nuvole mi "toccano il tetto" e mi tagliano il bianco distruggendolo (Clipping)!</h5>
+        <p><strong>Causa:</strong> Probabilmente non hai esposto usando l'ETTR sulla macchina, oppure stai aggiungendo troppo contrasto o troppo "Gain" nel primo Nodo Primario prima del "Color Space Transform". O peggio, stai usando "Offset" estremo invece di abbassare dolcemente l'HighLight nel pannello Log.</p>
+        <p><strong>Soluzione:</strong> Spostati nel nodo *prima* del "Color Space Transform". Assicurati di non sforare mai e usa le "Ruote Colore Log" (La ruotellina di fianco a quella normale). La ruota Log ti permette di tirare in basso l'Highlight (Le altissime luci che scottano) *senza trascinare giù anche il cielo intermedio o i volti degli attori*! Comprimerai il cielo delicatamente dentro i limiti di sicurezza e rinvigorirai la nuvola bianca, facendola apparire tondeggiante e favolosa prima di andare in Clip (cioè di scontrarsi col muro invalicabile del 100% bianco).</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 2. Quando uso l'Export in MP4 (H265 o H264), l'immagine in Premiere/DaVinci ha colori splendidi ma quando la carico su YouTube o la apro col player di Windows, è tutta lavata, piatta, desaturata, grigia morta! Perché?! (Gamma Shift Bug)</h5>
+        <p><strong>Causa:</strong> Ah, questo è l'incubo di ogni videomaker. Mac OS, Windows e YouTube (Chrome vs Firefox) usano spazi colore mal allineati ("Gamma Shift"). Apple, ad esempio, usa un tag colore sballato (Gamma 1.96 invece del 2.4). È un inferno matematico di ri-taggatura da parte dei Player e non colpa tua e dei tuoi grade.</p>
+        <p><strong>Soluzione Eterna:</strong> Vai in Resolve. Nell'ingranaggio in basso a dx (Project Settings) -> Color Management. Assicurati che "Timeline Color Space" sia su <strong>"Rec.709-A"</strong> (Se sei su Mac) oppure esporta mettendo un CST alla fine che forzi sempre Gamma 2.4 / Rec.709 in modo esplicito (Tag). Inoltre, nel tab Deliver (Esportazione), c'è "Color Space Tag" (Impostalo forzatamente a Rec.709) e "Gamma Tag" (Impostalo Forzatamente a Gamma 2.4). Se li lasci su "Same as project", Youtube userà il vecchio H.264 sbiadito. Scrivergli "fisicamente" la regola per ogni player costringerà Youtube (nella sua testardaggine) ad applicare i neri corretti per tutti! La tua G9 ringrazia. Amen.</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 3. Aggiungo la "Film Grain" (la grana stile pellicola Kodak) nell'ultimo nodo. Ma ora i bordi e i vestiti neri nel buio friggono orribilmente come zanzare, rovinando le ombre (Shadows friggono).</h5>
+        <p><strong>Causa:</strong> Nella vera pellicola analogica fisica degli anni 90... *non esiste* grana sulle ombre assolute (Shadows profonde)!! Il nero puro significa "nessuna esposizione di sale d'argento", quindi non c'è chimica, c'è solo pellicola trasparente vuota. I software invece (di default) mettono la grana elettronica *su tutti e 30 milioni di pixel*, neri e bianchi inclusi, sbagliando l'effetto e rendendolo orribilmente finto/elettrico!</p>
+        <p><strong>Soluzione:</strong> Nel plugin Film Grain di Resolve. Vai in impostazioni. Vedrai dei controlli per le curve o le "Blend" mode. Abbassa a zero il valore "Shadows" e abbassa quasi a zero il valore "Highlights"! La grana in questo modo colpirà (e in modo fantastico, organico, pazzesco) SOLO la carne della persona, l'erba ei "Midtones" (i toni medi del tuo girato), senza mai infastidire o sporcare i tuoi neri perfetti e contrastati o le nuvole bruciate. Sembrerà improvvisamente una Cinepresa 35mm magica e tu sembrerai Spielberg!</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 4. Sto facendo uno Zoom Digitale con i Keyframe (Pan/Crop) per simulare un movimento di avvicinamento nel montaggio in DaVinci. Ma i movimenti vanno a scatti, o iniziano bruscamente come un colpo!</h5>
+        <p><strong>Causa:</strong> Hai usato l'impostazione "Linear" base (Zoom lineare). Il computer avvia lo zoom da zero a 100km/h in mezzo millisecondo. È totalmente innaturale e robotico, l'occhio lo vede come un errore del videomaker invece che come una scelta.</p>
+        <p><strong>Soluzione:</strong> Clicca sull'icona a forma di rombo (Curva) nel video. Seleziona tutti i keyframe. Fai Tasto Destro sopra un puntino rosso, e seleziona le opzioni <strong>Ease In / Ease Out</strong> o "Smooth". Ora lo zoom "rallenterà" matematicamente prima di partire, accelererà nel mezzo, e poi ammortizzerà morbido l'arrivo fermandosi dolcemente al traguardo. Nessuno spettatore si accorgerà che lo Zoom era "finto" e digitale fatto da DaVinci Resolve, perché seguirà le normali leggi organiche della fisica di un braccio umano da cinepresa! (Pura fisica e logica della G9 in post-production).</p>
+      </div>
+      <div class="col dont">
+        <h5>❓ 5. Ho usato la bacchetta magica/contagocce (Skin Qualifier) per salvare il viso. Ma quando il mio attore si volta di lato verso le ombre, la sua maschera in DaVinci Resolve "sfarfalla", il Qualifier esplode in macchie bianche e nere bucando il naso! Perché?</h5>
+        <p><strong>Causa:</strong> Il Qualifier lavora usando 3 regole per pescare il file V-Log dalla memoria della Panasonic G9: HUE (Colore), SATURAZIONE e... LUMINANZA (Chiaroscuro / Luma). Quando l'attore si gira, la parte scura in ombra del suo volto "scende" drasticamente nei livelli di grigio. Il tuo qualifier originario stava cercando "pelle rosa illuminata"! Così la pelle all'ombra viene considerata "roba da buttare" e il Qualifier si disattiva per finta in frazioni di secondo a causa del rumore / grana del 10-bit!</p>
+        <p><strong>Soluzione Reale e Usata da Colorist di Hollywood:</strong> NON usare la Luma! Quando fai una qualifica per la Pelle Umana. Vai nei setting del contagocce in DaVinci. Togli completamente il segno di spunta dalla "L" (Luminanza). Poi premi "Blur" per ammorbidire e spingere i bordi uniti. Togliendo la Luminanza come parametro, la maschera cercherà *solo* e unicamente il colore Rosa-Arancio! Di conseguenza, che il viso dell'attore sia nella luce solare abbagliante della spiaggia o si sposti nell'oscurità buia della chiesa, finché il "tono base genetico" della sua maglietta/carne rimarrà rosato, la maschera di protezione sarà di ferro, granitica, perfetta e indistruttibile su tutto l'asse di 2 ore del girato! E lui non sfarfallerà in un Puffo al primo cambio d'ombra.</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<button id="themeBtn" aria-label="Cambia tema">
+  <div class="swatch"></div>
+  <span class="lbl-name">Cinema</span>
+</button>
+
+</body>
+</html>
